@@ -17,7 +17,7 @@
                 <div class="p-5" style="background: #f8f9fa; border-radius: 15px;">
                     <h2 class="text-success mb-4">Thank You!</h2>
                     <p class="lead">Your room has been successfully booked.</p>
-                    <p>A confirmation email has been sent with your booking details.</p>
+                    <p>A confirmation email will be send with your booking details.</p>
                     <a href="{{ url('/') }}" class="theme-btn mt-4">
                         Back to Home <i class="fal fa-long-arrow-right"></i>
                     </a>

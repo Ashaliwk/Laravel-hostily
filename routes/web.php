@@ -1,15 +1,11 @@
 <?php
 
-Auth::routes(['verify' => false]);
 // //frontend
 use App\Http\Controllers\frontend\IndexController;
 use App\Http\Controllers\frontend\AboutController;
 use App\Http\Controllers\frontend\blogdetailscontroller;
-use App\Http\Controllers\frontend\bloggridcontroller;
-use App\Http\Controllers\frontend\blogstandardcontroller;
 use App\Http\Controllers\frontend\contactcontroller;
 use App\Http\Controllers\frontend\maincontroller;
-use App\Http\Controllers\frontend\bookcontroller;
 use App\Http\Controllers\frontend\roomlistcontroller;
 use App\Http\Controllers\frontend\roommoderncontroller;
 use App\Http\Controllers\frontend\roomstylecontroller;
@@ -38,11 +34,8 @@ use App\Http\Controllers\backend\Fitemcontroller;
 
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
-Route::get('/bloggrid', [bloggridcontroller::class, 'index']);
 Route::get('/roomdetails/{id}', [RoomController::class, 'show'])->name('room.details');
-Route::get('/blogstandard', [blogstandardcontroller::class, 'index']);
 Route::get('/blogdetails', [blogdetailscontroller::class, 'index']);
-Route::get('/book', [bookcontroller::class, 'index']);
 Route::get('/main', [maincontroller::class, 'index']);
 Route::get('/roomlist', [roomlistcontroller::class, 'index']);
 Route::get('/roommodern', [roommoderncontroller::class, 'index'])->name('room.modern');
@@ -52,14 +45,12 @@ Route::get('/servicesdetails', [servicesdetailscontroller::class, 'index']);
 Route::get('/servicesteam', [servicesteamcontroller::class, 'index']);
 Route::get('/contact', [contactcontroller::class, 'index']);
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-//Route::middleware('auth')->group(function () {
-//Route::post('/book-room', [BookingController::class, 'store'])->name('book.room');
-//});
-// Allow guests (non-logged-in users) to book a room
-Route::get('/book/{id}', [App\Http\Controllers\frontend\BookingController::class, 'show'])->name('booking.page');
-Route::post('/book-room', [App\Http\Controllers\frontend\BookingController::class, 'store'])->name('book.room');
+// Booking page (global + room specific)
+Route::get('/book', [BookingController::class, 'index'])->name('booking.index');
+Route::get('/book/{id}', [BookingController::class, 'index'])->name('book.room');
+Route::post('/book-room', [BookingController::class, 'store'])->name('book.room');
 Route::get('/booking-success', [BookingController::class, 'success'])->name('booking.success');
-Route::get('/search-rooms', [App\Http\Controllers\Frontend\RoomController::class, 'search'])->name('search.rooms');
+Route::get('/search-rooms', [RoomController::class, 'search'])->name('search.rooms');
 // Backend
 //Login Page
 Route::get('/admin/login', [AdminLoginController::class, 'index']);

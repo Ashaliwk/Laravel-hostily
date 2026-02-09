@@ -288,66 +288,6 @@
 	</div>
 </div>
 
-<div class="testimonial__area section-padding pb-0">
-	<div class="container">
-		<div class="row">
-			<div class="col-xl-12">
-				<div class="testimonial__area-bg">
-					<div class="swiper testimonial__slider">
-						<div class="swiper-wrapper">
-							<div class="swiper-slide">
-								<div class="testimonial__area-item">
-									<div class="testimonial__area-item-image">
-										<img class="img__full" src="assets/img/avatar/testimonial-1.jpg" alt="">
-									</div>
-									<div class="testimonial__area-item-content">
-										<h4>Emma Johnson</h4>
-										<span>Business Traveler</span>
-										<p>"The hotel staff went above and beyond to ensure my stay was comfortable
-											and productive. The attention to detail and the seamless check-in
-											process made me feel valued as a guest."</p>
-									</div>
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="testimonial__area-item">
-									<div class="testimonial__area-item-image">
-										<img class="img__full" src="assets/img/avatar/testimonial-2.jpg" alt="">
-									</div>
-									<div class="testimonial__area-item-content">
-										<h4>Michael Brown</h4>
-										<span>Family Vacationer</span>
-										<p>"Our family had a fantastic experience at the hotel. The kid-friendly
-											amenities, clean rooms, and delicious breakfast buffet made it an
-											unforgettable trip. Highly recommended for families!"</p>
-									</div>
-								</div>
-							</div>
-							<div class="swiper-slide">
-								<div class="testimonial__area-item">
-									<div class="testimonial__area-item-image">
-										<img class="img__full" src="assets/img/avatar/testimonial-3.jpg" alt="">
-									</div>
-									<div class="testimonial__area-item-content">
-										<h4>Sarah White</h4>
-										<span>Leisure Traveler</span>
-										<p>"The spa and wellness services at the hotel were exceptional. The serene
-											ambiance and attentive staff made my stay truly relaxing. This is the
-											perfect getaway for anyone looking to unwind."</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="testimonial__area-item-dots">
-						<div class="pagination"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
 <div class="blog__area section-padding">
 	<div class="container">
 		<div class="row mb-60">
@@ -362,7 +302,7 @@
 			<div class="col-xl-4 col-lg-6 xl-mb-30">
 				<div class="blog__area-item">
 					<div class="blog__area-item-image">
-						<a href="{{ url('/blog-details') }}"><img src="assets/img/blog/blog-1.jpg" alt=""></a>
+						<a href="{{ url('/blogdetails') }}"><img src="assets/img/blog/blog-1.jpg" alt=""></a>
 					</div>
 					<div class="blog__area-item-content">
 						<div class="blog__area-item-content-box">
@@ -371,12 +311,12 @@
 								<span>July 2022</span>
 							</div>
 							<div class="blog__area-item-content-box-title">
-								<h5><a href="{{ url('/blog-details') }}">The ultimate guide to finding the best hotels in
+								<h5><a href="{{ url('/blogdetails') }}">The ultimate guide to finding the best hotels in
 										your area.</a></h5>
 							</div>
 						</div>
 						<div class="blog__area-item-content-btn">
-							<a class="simple-btn-2" href="{{ url('/blog-details') }}">Read More<i
+							<a class="simple-btn-2" href="{{ url('/blogdetails') }}">Read More<i
 									class="fal fa-long-arrow-right"></i></a>
 						</div>
 					</div>
@@ -385,7 +325,7 @@
 			<div class="col-xl-4 col-lg-6 lg-mb-30">
 				<div class="blog__area-item blog__area-item-hover">
 					<div class="blog__area-item-image">
-						<a href="{{ url('/blog-details') }}"><img src="assets/img/blog/blog-2.jpg" alt=""></a>
+						<a href="{{ url('/blogdetails') }}"><img src="assets/img/blog/blog-2.jpg" alt=""></a>
 					</div>
 					<div class="blog__area-item-content">
 						<div class="blog__area-item-content-box">
@@ -394,11 +334,11 @@
 								<span>July 2022</span>
 							</div>
 							<div class="blog__area-item-content-box-title">
-								<h5><a href="{{ url('/blog-details') }}">Book a room Today most Affordable Rates.</a></h5>
+								<h5><a href="{{ url('/blogdetails') }}">Book a room Today most Affordable Rates.</a></h5>
 							</div>
 						</div>
 						<div class="blog__area-item-content-btn">
-							<a class="simple-btn-2" href="{{ url('/blog-details') }}">Read More<i
+							<a class="simple-btn-2" href="{{ url('/blogdetails') }}">Read More<i
 									class="fal fa-long-arrow-right"></i></a>
 						</div>
 					</div>
@@ -407,7 +347,7 @@
 			<div class="col-xl-4 col-lg-6">
 				<div class="blog__area-item">
 					<div class="blog__area-item-image">
-						<a href="{{ url('/blog-details') }}"><img src="assets/img/blog/blog-3.jpg" alt=""></a>
+						<a href="{{ url('/blogdetails') }}"><img src="assets/img/blog/blog-3.jpg" alt=""></a>
 					</div>
 					<div class="blog__area-item-content">
 						<div class="blog__area-item-content-box">
@@ -416,12 +356,12 @@
 								<span>July 2022</span>
 							</div>
 							<div class="blog__area-item-content-box-title">
-								<h5><a href="{{ url('/blog-details') }}">Hotel Booking is the best choice for hotel
+								<h5><a href="{{ url('/blogdetails') }}">Hotel Booking is the best choice for hotel
 										booking.</a></h5>
 							</div>
 						</div>
 						<div class="blog__area-item-content-btn">
-							<a class="simple-btn-2" href="{{ url('/blog-details') }}">Read More<i
+							<a class="simple-btn-2" href="{{ url('/blogdetails') }}">Read More<i
 									class="fal fa-long-arrow-right"></i></a>
 						</div>
 					</div>

@@ -87,7 +87,6 @@
                 <div id="collapseReviews" class="collapse" aria-labelledby="reviews" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{url('/admin/reviews')}}">Reviews</a>
-                        <a class="collapse-item" href="{{url('/admin/review-add')}}">Add Reviews</a>
                     </div>
                 </div>
             </li>
@@ -100,12 +99,7 @@
                 <div id="collapseProducts" class="collapse" aria-labelledby="homeproducts" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="{{url('/admin/homeproducts')}}">All Bookings</a>
-                        <a class="collapse-item" href="{{ url('/admin/bookings/today-checkin') }}">Today's Check-ins</a>
-                        <a class="collapse-item" href="{{ url('/admin/bookings/today-checkout') }}">Today's Check-outs</a>
-                        <a class="collapse-item" href="{{ url('/admin/bookings/upcoming') }}">Upcoming Bookings</a>
-                        <a class="collapse-item" href="{{ url('/admin/bookings/cancelled') }}">Cancelled Bookings</a>
                     </div>
-                    <a class="collapse-item" href="{{url('/admin/product-add')}}">Add Product</a>
                 </div>
             </li>
             <li class="nav-item {{ Request::is('admin/room', 'admin/room-add') ? 'active':''}}">

@@ -48,12 +48,7 @@
                                         <li><a href="{{ url('/roomlist') }}">Room List</a></li>
                                     </ul>
                                 </li>
-                                <li class="menu-item-has-children"><a href="#">Blog</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{{ url('/bloggrid') }}">Blog Grid</a></li>
-                                        <li><a href="{{ url('/blogstandard') }}">Blog Standard</a></li>
-                                        <li><a href="{{ url('/blogdetails') }}">Blog Details</a></li>
-                                    </ul>
+                                <li><a href="{{ url('/blogdetails') }}">Blog</a>
                                 </li>
                                 <li><a href="{{ url('/contact') }}">Contact</a></li>
                             </ul>
@@ -61,7 +56,7 @@
                     </div>
                     <div class="header__area-menubar-right-box">
                         <div class="header__area-menubar-right-box-btn">
-                            <a class="theme-btn" href="{{ url('/book') }}">Book Now<i class="fal fa-long-arrow-right"></i></a>
+                            <a class="theme-btn" href="{{url('/book')}}">Book Now<i class="fal fa-long-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

@@ -11,7 +11,9 @@ class Booking extends Model
 
     protected $fillable = [
         'room_id',
-        'user_id',
+        'guest_name',
+        'guest_email',
+        'guest_phone',
         'check_in',
         'check_out',
         'guests',

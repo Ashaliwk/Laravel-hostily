@@ -6,14 +6,12 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
         Schema::create('cart', function (Blueprint $table) {
             $table->id();
-        $table->string('name', 5000);
+            $table->string('name', 5000);
             $table->string('price', 5000);
             $table->string('image', 1000);
             $table->boolean('status')->default(0);
@@ -21,9 +19,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('cart');
