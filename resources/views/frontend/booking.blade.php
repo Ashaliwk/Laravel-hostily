@@ -50,7 +50,7 @@
                     @endif
                     <form action="{{ route('book.room') }}" method="POST">
                         @csrf
-                        <div class="row">
+                        <div class="row text-start">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Full Name</label>
                                 <input type="text"
@@ -76,17 +76,27 @@
                                     required>
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Select Room</label>
-                            <select name="room_id" class="form-select" required>
-                                <option value="">Choose a Room</option>
-                                @foreach($room as $r)
-                                <option value="{{ $r->id }}"
-                                    {{ isset($selectedRoom) && $selectedRoom->id == $r->id ? 'selected' : '' }}>
-                                    {{ $r->name }} — Rs {{ number_format($r->price) }}/Night
-                                </option>
-                                @endforeach
-                            </select>
+                        <div class="row text-start">
+                            <div class="col-md-6">
+                                <label class="form-label">Select Room</label><br>
+                                <select name="room_id" class="form-select" required>
+                                    <option value="">Choose a Room</option>
+                                    @foreach($room as $r)
+                                    <option value="{{ $r->id }}"
+                                        {{ isset($selectedRoom) && $selectedRoom->id == $r->id ? 'selected' : '' }}>
+                                        {{ $r->name }} — Rs {{ number_format($r->price) }}/Night
+                                    </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Number of Guests</label><br>
+                                <select class="form-select" name="guests" required>
+                                    @for($i = 1; $i <= 10; $i++)
+                                        <option value="{{ $i }}">{{ $i }} Guest{{ $i > 1 ? 's' : '' }}</option>
+                                        @endfor
+                                </select>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6 mb-3">
@@ -97,14 +107,6 @@
                                 <label class="form-label">Check-out Date</label>
                                 <input type="date" class="form-control" name="check_out" required>
                             </div>
-                        </div>
-                        <div class="mb-4">
-                            <label class="form-label">Number of Guests</label>
-                            <select class="form-select" name="guests" required>
-                                @for($i = 1; $i <= 10; $i++)
-                                    <option value="{{ $i }}">{{ $i }} Guest{{ $i > 1 ? 's' : '' }}</option>
-                                    @endfor
-                            </select>
                         </div>
                         <button type="submit" class="theme-btn w-100">
                             Confirm Booking
