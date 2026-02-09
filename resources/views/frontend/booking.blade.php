@@ -75,6 +75,14 @@
                                     placeholder="03XX-XXXXXXX"
                                     required>
                             </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Other Phone Number</label>
+                                <input type="tel"
+                                    name="guest_phone"
+                                    class="form-control"
+                                    placeholder="03XX-XXXXXXX"
+                                    required>
+                            </div>
                         </div>
                         <div class="row text-start">
                             <div class="col-md-6">
