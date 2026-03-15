@@ -41,8 +41,6 @@
 		</div>
 	</div>
 </div>
-<!-- Company Offers End -->
-<!-- Services Two Start -->
 <div class="services__two">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -54,7 +52,7 @@
 					</div>
 					<div class="services__two-item-content">
 						<h4>Room Cleaning</h4>
-						<p>Proin massa augue, lacinia at blandit ac, Fringilla scelerisque tortor. Mauris</p>
+						<p>Enjoy spotless and hygienic rooms with our daily professional housekeeping service for maximum comfort.</p>
 					</div>
 				</div>
 			</div>
@@ -66,7 +64,7 @@
 					</div>
 					<div class="services__two-item-content">
 						<h4>Car Parking</h4>
-						<p>Proin massa augue, lacinia at blandit ac, Fringilla scelerisque tortor. Mauris</p>
+						<p>Secure and spacious parking facility available 24/7 to ensure safety and convenience for your vehicle.</p>
 					</div>
 				</div>
 			</div>
@@ -77,8 +75,8 @@
 						<img src="assets/img/icon/swimming-pool.png" alt="">
 					</div>
 					<div class="services__two-item-content">
-						<h4>Swimming pool</h4>
-						<p>Proin massa augue, lacinia at blandit ac, Fringilla scelerisque tortor. Mauris</p>
+						<h4>Swimming Pool</h4>
+						<p>Relax and refresh in our clean and well-maintained swimming pool designed for leisure and enjoyment.</p>
 					</div>
 				</div>
 			</div>
@@ -90,15 +88,14 @@
 					</div>
 					<div class="services__two-item-content">
 						<h4>PickUp & Drop</h4>
-						<p>Proin massa augue, lacinia at blandit ac, Fringilla scelerisque tortor. Mauris</p>
+						<p>Reliable pickup and drop service ensuring smooth transportation to and from the hotel anytime.</p>
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </div>
-<!-- Services Two End -->
-<!-- Gallery Area Start -->
 <div class="gallery__area section-padding pb-0 overflow-hidden">
 	<div class="container-fluid p-0">
 		<div class="row">

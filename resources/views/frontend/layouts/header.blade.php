@@ -36,7 +36,7 @@
                                 </li>
                                 <li class="menu-item-has-children"><a href="#">Pages</a>
                                     <ul class="sub-menu">
-                                        <li><a href="{{ url('/about') }}">About</a></li>
+                                        <li><a href="{{ url('/about') }}">About us</a></li>
                                         <li><a href="{{ url('/servicesteam') }}">Team</a></li>
                                         <li><a href="{{ url('/servicesdetails') }}">Services Details</a></li>
                                     </ul>
@@ -44,7 +44,6 @@
                                 <li class="menu-item-has-children"><a href="#">Room</a>
                                     <ul class="sub-menu">
                                         <li><a href="{{ url('/roomstyle') }}">Room Style</a></li>
-                                        <li><a href="{{ url('/roommodern') }}">Room Modern</a></li>
                                         <li><a href="{{ url('/roomlist') }}">Room List</a></li>
                                     </ul>
                                 </li>

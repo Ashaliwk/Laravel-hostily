@@ -26,40 +26,41 @@
         <div class="row">
             <div class="col-xl-3">
             </div>
-            <div class="col-xl-9 order-first order-xl-1 xl-mb-30">
+            <div class="col-lg-12 order-first order-xl-1 xl-mb-30">
                 @forelse ($rooms as $room)
-                    <div class="room__list-item">
-                        <div class="room__list-item-left">
-                            <div class="room__list-item-image">
-                                <img src="{{ asset('backend/images/product/' . $room->image) }}" alt="{{ $room->name }}">
-                            </div>
-                        </div>
-                        <div class="room__list-item-right">
-                            <div class="room__list-item-right-content">
-                                <h4>{{ $room->name }}</h4>
-                                <p>{{ $room->description }}</p>
-                                <ul>
-                                    <li><i class="fal fa-bed-alt"></i> {{ $room->beds ?? '(3) bed\'s' }}</li>
-                                    <li><i class="fal fa-users"></i> {{ $room->guests ?? '(4) Guest\'s' }}</li>
-                                </ul>
-                            </div>
-                            <div class="room__list-item-right-meta">
-                                <div class="room__list-item-right-meta-top">
-                                    <span>${{ number_format($room->price) }}/Night</span>
-                                    <p><i class="fas fa-star"></i><span>4.{{ rand(1,9) }}</span> (2k)</p>
-                                </div>
-                                <button type="button" class="simple-btn" data-bs-toggle="modal" data-bs-target="#bookingModal-{{ $room->id }}">
-                                    <i class="far fa-chevron-right"></i> Book Now
-                                </button>
-                            </div>
+                <div class="room__list-item">
+                    <div class="room__list-item-left">
+                        <div class="room__list-item-image">
+                            <img src="{{ asset('backend/images/product/' . $room->image) }}" alt="{{ $room->name }}">
                         </div>
                     </div>
+                    <div class="room__list-item-right">
+                        <div class="room__list-item-right-content">
+                            <h4>{{ $room->name }}</h4>
+                            <p>{{ $room->description }}</p>
+                            <ul>
+                                <li><i class="fal fa-bed-alt"></i> {{ $room->beds ?? '(3) bed\'s' }}</li>
+                                <li><i class="fal fa-users"></i> {{ $room->guests ?? '(4) Guest\'s' }}</li>
+                            </ul>
+                        </div>
+                        <div class="room__list-item-right-meta">
+                            <div class="room__list-item-right-meta-top">
+                                <span>${{ number_format($room->price) }}/Night</span>
+                            </div>
+                            <button type="button" class="simple-btn text-light fs-4">
+                                <a href="{{ url('/book', $room->id) }}" class="text-light text-decoration-none">
+                                    Book Now
+                                </a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-                    <div class="modal fade" id="bookingModal-{{ $room->id }}" tabindex="-1" aria-hidden="true">
-                        <!-- ... modal code ... -->
-                    </div>
+                <div class="modal fade" id="bookingModal-{{ $room->id }}" tabindex="-1" aria-hidden="true">
+                    <!-- ... modal code ... -->
+                </div>
                 @empty
-                    <p>No rooms available.</p>
+                <p>No rooms available.</p>
                 @endforelse
             </div>
         </div>
