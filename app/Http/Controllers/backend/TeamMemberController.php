@@ -8,122 +8,49 @@ use Illuminate\Http\Request;
 
 class TeamMemberController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        if($request->session()->exists('email')){
-
-            return view('backend.team', ['team'=>Team::get()]);
-        } else{
-            return view('backend.login');
-        }
-
+        $teams = Team::all(); // ✅ plural
+        return view('backend.team', compact('teams'));
+    }
+    public function create()
+    {
+        return view('backend.team');
     }
 
-
-    public function registerTeam()
+    public function store(Request $request)
     {
-        return view('backend.team-add');
-    }
+        $request->validate([
+            'fullname' => 'required',
+            'email' => 'required|email',
+            'designation' => 'required',
+            'image' => 'nullable|image|mimes:jpg,jpeg,png'
+        ]);
 
-    public function submitTeamRecord(Request $request)
-    {
-        // dd($request->all());
+        $team = new Team();
 
-        $request->validate(
-            [
-                'fullname' => 'required|min:3',
-                'email' => 'required|email',
-                'designation' => 'required|min:3',
-                'shortintro' => 'required|min:10',
-                'longintro' => 'required|min:20',
-                'printerest' => 'required|min:6',
-                'insta' => 'required|min:6',
-                'twitter' => 'required|min:6',
-                'facebook' => 'required|min:6',
-                'image' => 'required|mimes:jpeg,jpg,png,gif|max:10000'
-            ]
-            );
-        $ADMIN_STATUS = 1;
-        $ImageName = 'fs_team_' . time() . '.' . $request->image->extension();
-        $request->image->move(public_path('backend/images/team'), $ImageName);
-        // dd($ImageName);
-        $team = new Team;
         $team->fullname = $request->fullname;
         $team->email = $request->email;
         $team->designation = $request->designation;
-        $team->shortintro = $request->shortintro;
-        $team->longintro = $request->longintro;
-        $team->printerest = $request->printerest;
+        $team->intro = $request->intro;
         $team->insta = $request->insta;
-        $team->twitter = $request->twitter;
-        $team->facebook = $request->facebook;
-        $team->image = $ImageName;
-        $team->status = $ADMIN_STATUS;
-        $team->save();
-        return back()->withSuccess('Member Record Added Successfully');
-    }
 
-    public function editTeam($id)
-    {
-        // dd($id);
-        $team = Team::where('id', $id)->first();
-
-        return view('backend.team-edit', ['team' => $team]);
-
-    }
-
-    public function updateTeam(Request $request, $id)
-    {
-
-        $request->validate(
-            [
-                'fullname' => 'required|min:3',
-                'email' => 'required|email',
-                'designation' => 'required|min:3',
-                'shortintro' => 'required|min:10',
-                'longintro' => 'required|min:20',
-                'printerest' => 'required|min:6',
-                'insta' => 'required|min:6',
-                'twitter' => 'required|min:6',
-                'facebook' => 'required|min:6',
-                'image' => 'nullable|mimes:jpeg,jpg,png|max:10000'
-            ]
-            );
-
-        $team = Team::where('id', $id)->first();
-        $MEMBER_STATUS = 1;
-        if(isset($request->image))
-        {
-            $ImageName = 'fs_team_' . time() . '.' . $request->image->extension();
-            $request->image->move(public_path('backend/images/team'), $ImageName);
-            $team->image = $ImageName;
+        // Image upload
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $name = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('uploads/team'), $name);
+            $team->image = $name;
         }
-        $team->fullname = $request->fullname;
-        $team->email = $request->email;
-        $team->designation = $request->designation;
-        $team->shortintro = $request->shortintro;
-        $team->longintro = $request->longintro;
-        $team->printerest = $request->printerest;
-        $team->insta = $request->insta;
-        $team->twitter = $request->twitter;
-        $team->facebook = $request->facebook;
-        $team->status = $MEMBER_STATUS;
+
         $team->save();
-        return back()->withSuccess('Member Record Updated Successfully');
+
+        return redirect('/admin/team')->with('success', 'Team Member Added');
     }
 
-
-    public function deleteTeam($id)
+    public function frontend()
     {
-        $team = Team::where('id', $id)->first();
-        $team->delete();
-        return back()->withSuccess('Member Record Deleted Successfully');
+        $team = Team::all();
+        return view('frontend.team', compact('team'));
     }
-
-    public function showTeamMember($id)
-    {
-        $team = Team::where('id', $id)->first();
-        return view('backend.team-member-details', ['team' => $team]);
-    }
-
 }

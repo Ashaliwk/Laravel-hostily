@@ -18,7 +18,7 @@
                 @csrf
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-lg-12">
                         <div class="form-floating mb-3">
                             <input class="form-control @error('name') is-invalid @enderror"
                                    id="name" type="text" name="name"
@@ -51,7 +51,7 @@
 
                         <div class="mb-4">
                             <label for="image" class="form-label">Room Image</label>
-                            <input class="form-control @error('image') is-invalid @enderror"
+                            <input class="form-control @error('image') is-invalid @enderror p-1"
                                    id="image" type="file" accept=".png,.jpg,.jpeg,.webp" name="image" required>
                             @error('image')
                                 <span class="text-danger">{{ $message }}</span>

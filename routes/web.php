@@ -7,7 +7,6 @@ use App\Http\Controllers\frontend\blogdetailscontroller;
 use App\Http\Controllers\frontend\contactcontroller;
 use App\Http\Controllers\frontend\maincontroller;
 use App\Http\Controllers\frontend\roomlistcontroller;
-use App\Http\Controllers\frontend\roommoderncontroller;
 use App\Http\Controllers\frontend\roomstylecontroller;
 use App\Http\Controllers\frontend\pricingcontroller;
 use App\Http\Controllers\frontend\servicesdetailscontroller;
@@ -26,7 +25,6 @@ use App\Http\Controllers\backend\AdminReviewController;
 use App\Http\Controllers\backend\AdminShopController;
 use App\Http\Controllers\backend\AdminProductController;
 use App\Http\Controllers\backend\AdminroomsController;
-use App\Http\Controllers\backend\AdminWaffleController;
 use App\Http\Controllers\backend\AdminCartController;
 use App\Http\Controllers\backend\Fitemcontroller;
 
@@ -38,7 +36,6 @@ Route::get('/roomdetails/{id}', [RoomController::class, 'show'])->name('room.det
 Route::get('/blogdetails', [blogdetailscontroller::class, 'index']);
 Route::get('/main', [maincontroller::class, 'index']);
 Route::get('/roomlist', [roomlistcontroller::class, 'index']);
-Route::get('/roommodern', [roommoderncontroller::class, 'index'])->name('room.modern');
 Route::get('/roomstyle', [roomstylecontroller::class, 'index']);
 Route::get('/pricing', [pricingcontroller::class, 'index']);
 Route::get('/servicesdetails', [servicesdetailscontroller::class, 'index']);
@@ -84,15 +81,12 @@ Route::get('/admin/delete/{id}', [AdminHomeController::class, 'deleteAdminRecord
 Route::get('/admin/edit/{id}', [AdminHomeController::class, 'editAdminRecord'])->name('admin.edit');
 Route::get('/admin/update/{id}', [AdminHomeController::class, 'updateAdminRecord'])->name('admin.update');
 
-
-// Team Management
-Route::get('/admin/team', [TeamMemberController::class, 'index'])->name('team.show');
-Route::get('/admin/team-member-details/{id}', [TeamMemberController::class, 'showTeamMember'])->name('team.details');
-Route::get('/admin/team-add', [TeamMemberController::class, 'registerTeam'])->name('team.add');
-Route::post('/admin/team-add', [TeamMemberController::class, 'submitTeamRecord']);
-Route::get('/admin/team-edit/{id}', [TeamMemberController::class, 'editTeam'])->name('team.edit');
-Route::put('/admin/team-edit/{id}', [TeamMemberController::class, 'updateTeam'])->name('team.update');
-Route::delete('/admin/team-delete/{id}', [TeamMemberController::class, 'deleteTeam'])->name('team.delete');
+Route::get('/admin/team', [TeamMemberController::class, 'index']);
+Route::get('/admin/team-add', [TeamMemberController::class, 'create']);
+Route::post('/admin/team-add', [TeamMemberController::class, 'store']);
+Route::get('/admin/team-delete/{id}', [TeamMemberController::class, 'destroy']);
+// Frontend
+Route::get('/team', [servicesteamcontroller::class, 'frontend']);
 
 // Reviews Management
 Route::get('/admin/reviews', [AdminReviewController::class, 'index'])->name('review.show');
@@ -125,15 +119,6 @@ Route::post('/admin/product-add', [AdminProductController::class, 'submitProduct
 Route::get('/admin/product-edit/{id}', [AdminProductController::class, 'editProduct'])->name('product.edit');
 Route::put('/admin/product-edit/{id}', [AdminProductController::class, 'updateProduct'])->name('product.update');
 Route::delete('/admin/product-delete/{id}', [AdminProductController::class, 'deleteProduct'])->name('product.delete');
-
-// Waffles Management
-Route::get('/admin/waffleproduct', [AdminWaffleController::class, 'index'])->name('waffle.show');
-Route::get('/admin/waffle-add', [AdminWaffleController::class, 'addWaffle'])->name('waffle.add');
-Route::post('/admin/waffle-add', [AdminWaffleController::class, 'submitWaffleRecord']);
-Route::get('/admin/waffle-edit/{id}', [AdminWaffleController::class, 'editWaffle'])->name('waffle.edit');
-Route::put('/admin/waffle-edit/{id}', [AdminWaffleController::class, 'updateWaffle'])->name('waffle.update');
-Route::delete('/admin/waffle-delete/{id}', [AdminWaffleController::class, 'deleteWaffle'])->name('waffle.delete');
-
 
 // Room Management
 Route::get('/admin/room', [AdminroomsController::class, 'index'])->name('room.show');
