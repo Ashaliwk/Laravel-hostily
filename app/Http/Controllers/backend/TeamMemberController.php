@@ -10,12 +10,12 @@ class TeamMemberController extends Controller
 {
     public function index()
     {
-        $teams = Team::all(); // ✅ plural
+        $teams = Team::all();
         return view('backend.team', compact('teams'));
     }
     public function create()
     {
-        return view('backend.team');
+        return view('backend.team-add');
     }
 
     public function store(Request $request)

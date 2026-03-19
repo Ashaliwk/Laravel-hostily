@@ -14,9 +14,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('designation');
             $table->string('shortintro');
-            $table->longText('longintro');
             $table->string('insta')->nullable();
-            $table->string('twitter')->nullable();
             $table->string('image');
             $table->boolean('status')->default(1);
             $table->timestamps();
