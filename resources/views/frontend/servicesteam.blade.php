@@ -28,14 +28,15 @@
                     <div class="services__team-item-image">
                         <img src="{{ asset('uploads/team/'.$team->image) }}" alt="">
                         <div class="services__team-item-image-content">
-                            <h5>{{ $team->fullname }}</h5>
+                            <h4>{{ $team->fullname }}</h4>
                             <span>{{ $team->designation }}</span>
+
                             <div class="services__team-item-image-content-social">
                                 <ul>
-                                    @if($team->insta)
+                                    @if($team->intro)
                                     <li>
-                                        <a href="{{ $team->insta }}" target="_blank">
-                                            <i class="fab fa-instagram"></i>
+                                        <a href="{{ $team->intro }}" target="_blank">
+                                            <p>{{ $team->intro }}</p>
                                         </a>
                                     </li>
                                     @endif
