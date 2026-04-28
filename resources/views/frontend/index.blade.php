@@ -69,19 +69,25 @@
 
 		<div class="row deluxe__area-active">
 			@forelse ($rooms as $room)
-			<div class="col-xl-6 col-lg-4 mb-30 {{ $room->category ?? 'luxury' }}">
+			<div class="col-xl-6 col-lg-4 mb-30 {{ strtolower($room->room_type) ?: ($room->category ?? 'luxury') }}">
 				<div class="deluxe__area-item">
 					<div class="deluxe__area-item-image">
 						<img class="img__full" src="/backend/images/product/{{ $room->image }}" alt="{{ $room->name }}">
 					</div>
 					<div class="deluxe__area-item-content">
-						<h6><span>${{ number_format($room->price) }}</span> / Night</h6>
+						<h6><span>{{ number_format($room->price) }} PKR</span> / Night</h6>
 						<h3 class="text-light"><a href="{{ url('/roomdetails', $room->id) }}">{{ $room->name }}</a></h3>
 						<p class="text-light">{{ Str::limit($room->description, 100) }}</p>
-						<button type="button" class="simple-btn text-light fs-4">
+						<button type="button" class="simple-btn text-light fs-4 {{ $room->room_status != 'available' ? 'disabled bg-secondary text-capitalize' : '' }}" {{ $room->room_status != 'available' ? 'disabled' : '' }} style="{{ $room->room_status != 'available' ? 'cursor: not-allowed;' : '' }}">
+							@if($room->room_status == 'available')
 							<a href="{{ url('/book', $room->id) }}" class="text-light text-decoration-none">
 								Book Now
 							</a>
+							@else
+							<span class="text-light text-decoration-none text-capitalize">
+								{{ $room->room_status }}
+							</span>
+							@endif
 						</button>
 					</div>
 				</div>
@@ -132,7 +138,7 @@
 								</div>
 
 								<div class="alert alert-info mb-4">
-									<strong>Price per night:</strong> ${{ number_format($room->price, 2) }}
+									<strong>Price per night:</strong> {{ number_format($room->price, 2) }} PKR
 								</div>
 
 								<button type="submit" class="theme-btn w-100">

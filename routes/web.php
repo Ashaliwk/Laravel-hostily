@@ -7,12 +7,13 @@ use App\Http\Controllers\frontend\blogdetailscontroller;
 use App\Http\Controllers\frontend\contactcontroller;
 use App\Http\Controllers\frontend\maincontroller;
 use App\Http\Controllers\frontend\roomlistcontroller;
-use App\Http\Controllers\frontend\roomstylecontroller;
 use App\Http\Controllers\frontend\pricingcontroller;
 use App\Http\Controllers\frontend\servicesdetailscontroller;
 use App\Http\Controllers\frontend\servicesteamcontroller;
 use App\Http\Controllers\frontend\RoomController;
 use App\Http\Controllers\frontend\BookingController;
+use App\Http\Controllers\frontend\ChatbotController;
+use App\Http\Controllers\frontend\AiSuggestionController;
 use Illuminate\Support\Facades\Route;
 
 //Backend controller
@@ -36,7 +37,6 @@ Route::get('/roomdetails/{id}', [RoomController::class, 'show'])->name('room.det
 Route::get('/blogdetails', [blogdetailscontroller::class, 'index']);
 Route::get('/main', [maincontroller::class, 'index']);
 Route::get('/roomlist', [roomlistcontroller::class, 'index']);
-Route::get('/roomstyle', [roomstylecontroller::class, 'index']);
 Route::get('/pricing', [pricingcontroller::class, 'index']);
 Route::get('/servicesdetails', [servicesdetailscontroller::class, 'index']);
 Route::get('/servicesteam', [servicesteamcontroller::class, 'index']);
@@ -48,6 +48,13 @@ Route::get('/book/{id}', [BookingController::class, 'index'])->name('book.room')
 Route::post('/book-room', [BookingController::class, 'store'])->name('book.room');
 Route::get('/booking-success', [BookingController::class, 'success'])->name('booking.success');
 Route::get('/search-rooms', [RoomController::class, 'search'])->name('search.rooms');
+
+// Chatbot Route
+Route::post('/chatbot/message', [ChatbotController::class, 'sendMessage'])->name('chatbot.message');
+
+// AI Suggestion Routes
+Route::get('/ai-suggestion', [AiSuggestionController::class, 'index'])->name('ai.suggest.form');
+Route::post('/ai-suggestion', [AiSuggestionController::class, 'suggest'])->name('ai.suggest');
 // Backend
 //Login Page
 Route::get('/admin/login', [AdminLoginController::class, 'index']);

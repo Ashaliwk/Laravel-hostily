@@ -49,6 +49,66 @@
                             @enderror
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="room_type" class="form-label">Room Type</label>
+                                <select class="form-select form-control" id="room_type" name="room_type">
+                                    <option value="economy">Economy</option>
+                                    <option value="luxury">Luxury</option>
+                                    <option value="suite">Suite</option>
+                                    <option value="family">Family</option>
+                                    <option value="single">Single</option>
+                                    <option value="double">Double</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="max_persons" class="form-label">Max Persons</label>
+                                <input class="form-control" id="max_persons" type="number" name="max_persons" value="{{ old('max_persons') }}" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="ac_type" class="form-label">AC Type</label>
+                                <select class="form-select form-control" id="ac_type" name="ac_type">
+                                    <option value="AC">AC</option>
+                                    <option value="Non-AC">Non-AC</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="bed_type" class="form-label">Bed Type</label>
+                                <select class="form-select form-control" id="bed_type" name="bed_type">
+                                    <option value="Single Bed">Single Bed</option>
+                                    <option value="Double Bed">Double Bed</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="meal_plan" class="form-label">Meal Plan</label>
+                                <select class="form-select form-control" id="meal_plan" name="meal_plan">
+                                    <option value="No Meal">No Meal</option>
+                                    <option value="Breakfast">Breakfast</option>
+                                    <option value="Lunch">Lunch</option>
+                                    <option value="Dinner">Dinner</option>
+                                    <option value="Full Board">Full Board</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="room_status" class="form-label">Room Status</label>
+                                <select class="form-select form-control" id="room_status" name="room_status">
+                                    <option value="available">Available</option>
+                                    <option value="booked">Booked</option>
+                                    <option value="maintenance">Maintenance</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3 d-flex align-items-center">
+                                <div class="form-check mr-4">
+                                    <input class="form-check-input" type="checkbox" id="is_wifi" name="is_wifi" {{ old('is_wifi') ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="is_wifi">Free WiFi</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="is_parking" name="is_parking" {{ old('is_parking') ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="is_parking">Free Parking</label>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="mb-4">
                             <label for="image" class="form-label">Room Image</label>
                             <input class="form-control @error('image') is-invalid @enderror p-1"

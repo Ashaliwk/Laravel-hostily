@@ -14,10 +14,11 @@
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>ID</th>
                                     <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Persons</th>
+                                    <th>AC/Bed</th>
                                     <th>Price</th>
-                                    <th>Description</th>
                                     <th>Image</th>
                                     <th>Status</th>
                                     <th width="160px">Actions</th>
@@ -27,22 +28,21 @@
                                 @foreach ($rooms as $room)
                                 <tr>
                                     <td>{{ $loop->index+1 }}</td>
-                                    <td>{{$room->id}}</td>
                                     <td>{{$room->name}}</td>
-                                    <td>{{$room->price}}</td>
-                                    <td>{{$room->description}}</td>
+                                    <td><span class="badge badge-info">{{ ucfirst($room->room_type) }}</span></td>
+                                    <td>{{$room->max_persons}}</td>
+                                    <td>{{$room->ac_type}} / {{$room->bed_type}}</td>
+                                    <td>{{$room->price}} PKR</td>
                                     <td>
                                         <img src="/backend/images/product/{{$room->image}}" class="rounded-circle" width="50px" height="50px" alt="Image Not Found">
                                     </td>
                                     <td>
-                                        @if($room->status == 1)
-                                            <a href="">
-                                                <span class="badge badge-success p-2">Active</span>
-                                            </a>
+                                        @if($room->room_status == 'available')
+                                            <span class="badge badge-success p-2">Available</span>
+                                        @elseif($room->room_status == 'booked')
+                                            <span class="badge badge-warning p-2">Booked</span>
                                         @else
-                                        <a href="">
-                                            <span class="badge badge-danger p-2">Disabled</span>
-                                        </a>
+                                            <span class="badge badge-secondary p-2">Maintenance</span>
                                         @endif
                                     </td>
                                     <td>

@@ -45,12 +45,18 @@
                         </div>
                         <div class="room__list-item-right-meta">
                             <div class="room__list-item-right-meta-top">
-                                <span>${{ number_format($room->price) }}/Night</span>
+                                <span>{{ number_format($room->price) }} PKR/Night</span>
                             </div>
-                            <button type="button" class="simple-btn text-light fs-4">
+                            <button type="button" class="simple-btn text-light fs-4 {{ $room->room_status != 'available' ? 'disabled bg-secondary text-capitalize' : '' }}" {{ $room->room_status != 'available' ? 'disabled' : '' }} style="{{ $room->room_status != 'available' ? 'cursor: not-allowed;' : '' }}">
+                                @if($room->room_status == 'available')
                                 <a href="{{ url('/book', $room->id) }}" class="text-light text-decoration-none">
                                     Book Now
                                 </a>
+                                @else
+                                <span class="text-light text-decoration-none text-capitalize">
+                                    {{ $room->room_status }}
+                                </span>
+                                @endif
                             </button>
                         </div>
                     </div>

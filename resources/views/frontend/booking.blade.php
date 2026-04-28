@@ -31,9 +31,21 @@
                         alt="{{ $selectedRoom->name }}">
                     <div class="p-3">
                         <h3>{{ $selectedRoom->name }}</h3>
+
+                        <ul class="list-unstyled mt-3 mb-4 text-start" style="color: #666; font-size: 15px; line-height: 2;">
+                            <li><i class="fas fa-users text-warning mr-2"></i> Max Capacity: <strong>{{ $selectedRoom->max_persons ?? 'N/A' }} Persons</strong></li>
+                            <li><i class="fas fa-snowflake text-warning mr-2"></i> AC Status: <strong>{{ $selectedRoom->ac_type ?? 'N/A' }}</strong></li>
+                            <li><i class="fas fa-bed text-warning mr-2"></i> Bed Type: <strong>{{ $selectedRoom->bed_type ?? 'N/A' }}</strong></li>
+                            <li><i class="fas fa-utensils text-warning mr-2"></i> Meal Plan: <strong>{{ $selectedRoom->meal_plan ?? 'N/A' }}</strong></li>
+                            <li class="mt-2">
+                                @if($selectedRoom->is_wifi) <span class="badge bg-success p-2 mr-1"><i class="fas fa-wifi"></i> Free WiFi</span> @endif
+                                @if($selectedRoom->is_parking) <span class="badge bg-info p-2"><i class="fas fa-parking"></i> Free Parking</span> @endif
+                            </li>
+                        </ul>
+
                         <p>{{ $selectedRoom->description }}</p>
                         <h4 class="text-primary">
-                            {{ number_format($selectedRoom->price) }} $ / Night
+                            {{ number_format($selectedRoom->price) }} PKR / Night
                         </h4>
                     </div>
                 </div>
@@ -76,11 +88,11 @@
                                     required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Other Phone Number</label>
+                                <label class="form-label">CNIC Number</label>
                                 <input type="tel"
-                                    name="guest_phone"
+                                    name="guest_CNIC"
                                     class="form-control"
-                                    placeholder="03XX-XXXXXXX"
+                                    placeholder="3XXXX-XXXXXXX-X"
                                     required>
                             </div>
                         </div>
@@ -92,17 +104,15 @@
                                     @foreach($room as $r)
                                     <option value="{{ $r->id }}"
                                         {{ isset($selectedRoom) && $selectedRoom->id == $r->id ? 'selected' : '' }}>
-                                        {{ $r->name }} — Rs {{ number_format($r->price) }}/Night
+                                        {{ $r->name }} — {{ number_format($r->price) }} PKR/Night
                                     </option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Number of Guests</label><br>
-                                <select class="form-select" name="guests" required>
-                                    @for($i = 1; $i <= 10; $i++)
-                                        <option value="{{ $i }}">{{ $i }} Guest{{ $i > 1 ? 's' : '' }}</option>
-                                        @endfor
+                                <label class="form-label">Payment Method</label><br>
+                                <select class="form-select" name="payment_method" required style="background-color: #e9ecef; pointer-events: none;" readonly>
+                                    <option value="cash" selected>Cash on Arrival</option>
                                 </select>
                             </div>
                         </div>

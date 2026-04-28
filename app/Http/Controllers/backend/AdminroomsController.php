@@ -29,7 +29,13 @@ class AdminroomsController extends Controller
             'name'        => 'required',
             'price'       => 'required|numeric',
             'description' => 'required',
-            'image'       => 'required|mimes:jpeg,jpg,png,gif,webp|max:10000'
+            'image'       => 'required|mimes:jpeg,jpg,png,gif,webp|max:10000',
+            'room_type'   => 'nullable|string',
+            'max_persons' => 'nullable|integer',
+            'ac_type'     => 'nullable|string',
+            'bed_type'    => 'nullable|string',
+            'meal_plan'   => 'nullable|string',
+            'room_status' => 'nullable|string'
         ]);
 
         $ADMIN_STATUS = 1;
@@ -42,6 +48,14 @@ class AdminroomsController extends Controller
             'description' => $request->description,
             'image'       => $ImageName,
             'status'      => $ADMIN_STATUS,
+            'room_type'   => $request->room_type,
+            'max_persons' => $request->max_persons,
+            'ac_type'     => $request->ac_type,
+            'bed_type'    => $request->bed_type,
+            'meal_plan'   => $request->meal_plan,
+            'room_status' => $request->room_status ?? 'available',
+            'is_wifi'     => $request->has('is_wifi') ? 1 : 0,
+            'is_parking'  => $request->has('is_parking') ? 1 : 0,
         ]);
 
         Session::flash('success', 'Room Record Added Successfully');
@@ -63,6 +77,12 @@ class AdminroomsController extends Controller
             'price'       => 'required|numeric',
             'description' => 'required',
             'image'       => 'nullable|mimes:jpeg,jpg,png,gif,webp|max:10000',
+            'room_type'   => 'nullable|string',
+            'max_persons' => 'nullable|integer',
+            'ac_type'     => 'nullable|string',
+            'bed_type'    => 'nullable|string',
+            'meal_plan'   => 'nullable|string',
+            'room_status' => 'nullable|string'
         ]);
 
         $rooms = rooms::findOrFail($id);
@@ -81,6 +101,16 @@ class AdminroomsController extends Controller
         $rooms->price       = $request->price;
         $rooms->description = $request->description;
         $rooms->status      = $MEMBER_STATUS;
+        
+        $rooms->room_type   = $request->room_type;
+        $rooms->max_persons = $request->max_persons;
+        $rooms->ac_type     = $request->ac_type;
+        $rooms->bed_type    = $request->bed_type;
+        $rooms->meal_plan   = $request->meal_plan;
+        $rooms->room_status = $request->room_status ?? 'available';
+        $rooms->is_wifi     = $request->has('is_wifi') ? 1 : 0;
+        $rooms->is_parking  = $request->has('is_parking') ? 1 : 0;
+        
         $rooms->save();
 
         if ($request->name !== $rooms->getOriginal('name')) {

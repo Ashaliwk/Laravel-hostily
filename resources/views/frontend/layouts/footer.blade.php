@@ -119,5 +119,7 @@
 	<script src="assets/js/jquery.meanmenu.min.js"></script>
 	<script src="assets/js/isotope.pkgd.min.js"></script>
 	<script src="assets/js/custom.js"></script>
+	
+	@include('frontend.layouts.chatbot')
 </body>
 </html>

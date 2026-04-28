@@ -43,7 +43,6 @@
                                 </li>
                                 <li class="menu-item-has-children"><a href="#">Room</a>
                                     <ul class="sub-menu">
-                                        <li><a href="{{ url('/roomstyle') }}">Room Style</a></li>
                                         <li><a href="{{ url('/roomlist') }}">Room List</a></li>
                                     </ul>
                                 </li>

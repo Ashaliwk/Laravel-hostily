@@ -33,7 +33,7 @@
                                 <li><i class="fal fa-bed-alt"></i> {{ $room->beds ?? '(3) bed\'s' }}</li>
                                 <li><i class="fal fa-users"></i> {{ $room->guests ?? '(6) Guest\'s' }}</li>
                             </ul>
-                            <h4>${{ number_format($room->price) }}<span>/Night</span></h4>
+                            <h4>{{ number_format($room->price) }} PKR<span>/Night</span></h4>
 
                             <!-- Booking Form -->
                             <form action="{{ route('book.room') }}" method="POST">

@@ -31,7 +31,6 @@ class BookingController extends Controller
             'guest_phone' => 'required',
             'check_in'  => 'required|date|after_or_equal:today',
             'check_out' => 'required|date|after:check_in',
-            'guests'    => 'required|integer|min:1|max:10',
         ]);
 
         $room = rooms::findOrFail($request->room_id);
@@ -65,7 +64,7 @@ class BookingController extends Controller
             'guest_phone' => $request->guest_phone,
             'check_in'    => $request->check_in,
             'check_out'   => $request->check_out,
-            'guests'      => $request->guests,
+            'guests'      => $room->max_persons ?? 1,
             'total_price' => $total,
             'status'      => 'pending',
         ]);
