@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Services\AiRoomSuggestionService;
+use Illuminate\Http\Request;
 
 class AiSuggestionController extends Controller
 {
@@ -16,18 +16,17 @@ class AiSuggestionController extends Controller
     public function suggest(Request $request, AiRoomSuggestionService $aiService)
     {
         $data = $request->validate([
-            'persons' => 'required|integer|min:1',
-            'budget' => 'required|numeric|min:0',
-            'room_type' => 'required|string',
-            'ac_type' => 'required|string',
-            'meal_plan' => 'required|string',
-            'bed_type' => 'required|string',
-            'wifi' => 'required|string',
-            'parking' => 'required|string',
+            'persons'   => 'required|integer|min:1',
+            'budget'    => 'required|numeric|min:0',
+            'ac_type'   => 'nullable|string',
+            'meal_plan' => 'nullable|string',
+            'wifi'      => 'nullable|string',
+            'parking'   => 'nullable|string',
         ]);
 
-        $rooms = $aiService->suggestRooms($data);
+        $rooms   = $aiService->suggestRooms($data);
+        $filters = $data;
 
-        return view('frontend.ai-suggestion', compact('rooms'));
+        return view('frontend.ai-suggestion', compact('rooms', 'filters'));
     }
 }

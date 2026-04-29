@@ -7,6 +7,7 @@ use App\Models\backend\rooms;
 use App\Models\frontend\Booking;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 
 class BookingController extends Controller
 {
@@ -57,7 +58,7 @@ class BookingController extends Controller
 
         $total = $nights * $room->price;
 
-        Booking::create([
+        $booking = Booking::create([
             'room_id'     => $room->id,
             'guest_name'  => $request->guest_name,
             'guest_email' => $request->guest_email,
@@ -69,9 +70,14 @@ class BookingController extends Controller
             'status'      => 'pending',
         ]);
 
+        Session::put('hotel_ai_history.last_booked_room_type', $room->room_type);
+        Session::put('hotel_ai_history.last_booked_room_id', $room->id);
+
         return redirect()
             ->route('booking.success')
-            ->with('success', 'Room booked successfully! We have sent a confirmation to your email.');
+            ->with('success', 'Room booked successfully! We have sent a confirmation to your email.')
+            ->with('booking_reference', $booking->id)
+            ->with('booking_email', $booking->guest_email);
     }
 
     /**

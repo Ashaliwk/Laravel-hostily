@@ -127,11 +127,23 @@
 <div class="services__team section-padding">
 	<div class="container">
 		<div class="row">
+			{{-- Hardcoded Hotel Manager --}}
+			<div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+				<div class="services__team-item">
+					<div class="services__team-item-image">
+						<img src="{{ asset('uploads/team/manager-ali.jpg') }}" alt="Hotel Manager" style="object-fit:cover;width:100%;height:300px;display:block;">
+						<div class="services__team-item-image-content">
+							<h5 class="mb-1">Hamza Fiaz</h5>
+							<span class="text-capitalize">manager</span>
+						</div>
+					</div>
+				</div>
+			</div>
 			@forelse($teams as $team)
 			<div class="col-xl-4 col-lg-4 col-md-6 mb-30">
 				<div class="services__team-item">
 					<div class="services__team-item-image">
-						<img src="{{ asset('uploads/team/'.$team->image) }}" alt="">
+					<img src="{{ asset('uploads/team/'.$team->image) }}" alt="" style="object-fit:cover;width:100%;height:300px;display:block;">
 						<div class="services__team-item-image-content">
 							<h5>{{ $team->fullname }}</h5>
 							<span>{{ $team->designation }}</span>

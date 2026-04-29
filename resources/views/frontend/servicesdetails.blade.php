@@ -1,125 +1,200 @@
 @extends('frontend.layouts.main')
-@section('title', 'About us')
+@section('title', 'Service Details')
 @section('main-container')
-<div class="page__banner" data-background="assets/img/banner/page-banner-1.jpg">
-	<div class="container">
-		<div class="row">
-			<div class="col-xl-12">
-				<div class="page__banner-title">
-					<h1>Services Details</h1>
-					<div class="page__banner-title-menu">
-						<ul>
-							<li><a href="{{ url('/') }}">Home</a></li>
-							<li><span>-</span>Services Details</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- Page Banner End -->
-<!-- Services Details Start -->
-<div class="services__details section-padding">
-	<div class="container">
-		<div class="row">
-			<div class="col-xxl-3 col-xl-4 col-lg-4 lg-mb-30">
-				<div class="all__sidebar">
-					<div class="all__sidebar-item">
-						<h5>Category</h5>
-						<div class="all__sidebar-item-category">
-							<ul>
-								<li><a href="{{ url('/servicesdetails') }}"><i class="far fa-angle-double-right"></i>Small Suite<span>(06)</span></a></li>
-								<li><a class="active" href="{{ url('/servicesdetails') }}"><i class="far fa-angle-double-right"></i>Luxury Room<span>(08)</span></a></li>
-								<li><a href="{{ url('/servicesdetails') }}"><i class="far fa-angle-double-right"></i>Single<span>(05)</span></a></li>
-								<li><a href="{{ url('/servicesdetails') }}"><i class="far fa-angle-double-right"></i>Family<span>(09)</span></a></li>
-								<li><a href="{{ url('/servicesdetails') }}"><i class="far fa-angle-double-right"></i>Double Room<span>(03)</span></a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="all__sidebar-item-help mt-30" data-background="assets/img/hotel/hotel-9.jpg">
-						<div class="all__sidebar-item-help-icon">
-							<i class="fal fa-phone-alt"></i>
-						</div>
-						<h5> Easy solutions to your home beauty</h5>
-						<div class="all__sidebar-item-help-contact">
-							<div class="all__sidebar-item-help-contact-content">
-								<span>Quick Help</span>
-								<h6><a href="tel:+125(895)658568">+125 (895) 658 568</a></h6>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xxl-9 col-xl-8 col-lg-8">
-				<div class="services__details-left">
-					<div class="services__details-left-image mb-30">
-						<img src="assets/img/luxury/luxury-5.jpg" alt="">
-					</div>
-					<div class="services__details-left-content">
-						<h2 class="mb-30">Luxury Room</h2>
-						<p class="mb-0">Our hotel offers a wide range of services designed to make your stay comfortable and memorable. From 24-hour front desk assistance to daily housekeeping, we prioritize your convenience and satisfaction. Enjoy complimentary Wi-Fi, room service, and concierge services tailored to meet your needs.</p>
-						<span>We also provide specialized services, including airport transfers, laundry facilities, and event planning support. Whether you're traveling for business or leisure, our team is dedicated to ensuring your experience is seamless and enjoyable.</span>
-						<p>Our state-of-the-art amenities include a fitness center, spa, and fine dining options to elevate your stay. We take pride in delivering exceptional service and creating a welcoming environment for all our guests. Trust us to provide a personalized experience that exceeds expectations.</p>
-						<div class="row align-items-center mt-35 mb-35">
-							<div class="col-xl-6 col-lg-12 xl-mb-30">
-								<img class="img__full" src="assets/img/hotel/hotel-24.jpg" alt="">
-							</div>
-							<div class="col-xl-6 col-lg-12">
-								<h3 class="mb-20">Customer Benefits</h3>
-								<p class="m-30">Businesses A Guide To Attracting Clients To Your Agency, Amazon, Walmart or General Motors. The heart of USA, however</p>
-								<div class="services__details-left-content-list">
-									<p><i class="fas fa-arrow-circle-right"></i>Automotive service our clients receive</p>
-									<p><i class="fas fa-arrow-circle-right"></i>Praesent efficitur quam sit amet</p>
-									<p><i class="fas fa-arrow-circle-right"></i>We use the latest diagnostic equipment</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="room__details-right-faq mt-50">
-						<div class="room__details-right-faq-item">
-							<div class="room__details-right-faq-item-card">
-								<div class="room__details-right-faq-item-card-header">
-									<h5>Do you pay before or after booking a hotel?</h5>
-									<i class="far fa-long-arrow-up"></i>
-								</div>
-								<div class="room__details-right-faq-item-card-header-content active">
-									<p>Praesent non ullamcorper ligula. Proin a mi vitae massa lacinia sollicitudin eget eu ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consectetur rhoncus lobortis. Curabitur sit amet velit sagittis, pellentesque diam euismod, faucibus quam. Cras non rhoncus ipsum. Quisque mattis arcu metus, a fermentum justo semper in.</p>
-								</div>
-							</div>
-						</div>
-						<div class="room__details-right-faq-item">
-							<div class="room__details-right-faq-item-card">
-								<div class="room__details-right-faq-item-card-header">
-									<h5>What documents are needed for hotel booking?</h5>
-									<i class="far fa-long-arrow-down"></i>
-								</div>
-								<div class="room__details-right-faq-item-card-header-content display-none">
-									<p>Praesent non ullamcorper ligula. Proin a mi vitae massa lacinia sollicitudin eget eu ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consectetur rhoncus lobortis. Curabitur sit amet velit sagittis, pellentesque diam euismod, faucibus quam. Cras non rhoncus ipsum. Quisque mattis arcu metus, a fermentum justo semper in.</p>
-								</div>
-							</div>
-						</div>
-						<div class="room__details-right-faq-item">
-							<div class="room__details-right-faq-item-card">
-								<div class="room__details-right-faq-item-card-header">
-									<h5>Do hotels charge your card before you check in?</h5>
-									<i class="far fa-long-arrow-down"></i>
-								</div>
-								<div class="room__details-right-faq-item-card-header-content display-none">
-									<p>Praesent non ullamcorper ligula. Proin a mi vitae massa lacinia sollicitudin eget eu ante. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consectetur rhoncus lobortis. Curabitur sit amet velit sagittis, pellentesque diam euismod, faucibus quam. Cras non rhoncus ipsum. Quisque mattis arcu metus, a fermentum justo semper in.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+
+@php
+    $serviceGroups = [
+        'stay' => [
+            'title' => 'Stay Comfort',
+            'intro' => 'Room-centered services that shape the day-to-day guest experience.',
+            'items' => [
+                ['name' => 'Housekeeping', 'detail' => 'Daily refresh, linen care, evening turndown, and fast response for extra essentials.'],
+                ['name' => '24-Hr Room Service', 'detail' => 'Breakfast, late snacks, and full-day dining sent directly to the room.'],
+                ['name' => 'Breakfast Service', 'detail' => 'Flexible breakfast options for business travelers, couples, and family bookings.'],
+            ],
+        ],
+        'wellness' => [
+            'title' => 'Wellness and Leisure',
+            'intro' => 'Spaces designed for rest, recreation, and recovery throughout the stay.',
+            'items' => [
+                ['name' => 'Swimming Pool', 'detail' => 'Pool deck seating, family-friendly access windows, and towel support.'],
+                ['name' => 'Fitness Center', 'detail' => 'Cardio, free weights, and trainer-friendly space for regular routines.'],
+                ['name' => 'Spa and Wellness', 'detail' => 'Massage, recovery sessions, and quiet recharge time after travel.'],
+            ],
+        ],
+        'support' => [
+            'title' => 'Guest Support',
+            'intro' => 'Services that reduce friction before arrival, during the stay, and at checkout.',
+            'items' => [
+                ['name' => 'Airport Transfer', 'detail' => 'Planned pickups and drop-offs for smoother arrivals and departures.'],
+                ['name' => 'Concierge', 'detail' => 'Recommendations, restaurant bookings, city help, and local coordination.'],
+                ['name' => 'Parking and Security', 'detail' => 'Secure on-site parking, monitored access, and front-desk support around the clock.'],
+            ],
+        ],
+        'events' => [
+            'title' => 'Events and Work',
+            'intro' => 'Support for corporate, social, and long-form guest needs beyond the room itself.',
+            'items' => [
+                ['name' => 'Conference Halls', 'detail' => 'Meeting-ready rooms with planning support and service coordination.'],
+                ['name' => 'Banquet and Wedding Support', 'detail' => 'Event setup, guest flow management, catering, and hospitality coverage.'],
+                ['name' => 'Business Center', 'detail' => 'Reliable connectivity, quiet work areas, and print-ready convenience.'],
+            ],
+        ],
+    ];
+@endphp
+
+<style>
+    .service-shell {
+        background: #f6f7fb;
+    }
+    .service-panel {
+        background: #fff;
+        border: 1px solid #e8ebf3;
+        border-radius: 16px;
+        box-shadow: 0 16px 36px rgba(18, 34, 56, 0.06);
+    }
+    .service-nav a {
+        display: block;
+        padding: 12px 14px;
+        border-radius: 12px;
+        background: #f7f1e8;
+        color: #6d5425;
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+    .service-room-card img {
+        height: 220px;
+        object-fit: cover;
+    }
+</style>
+
+<div class="page__banner" data-background="{{ asset('assets/img/banner/page-banner-1.jpg') }}">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="page__banner-title">
+                    <h1>Service Details</h1>
+                    <div class="page__banner-title-menu">
+                        <ul>
+                            <li><a href="{{ url('/') }}">Home</a></li>
+                            <li><span>-</span>Service Details</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="scroll-up">
-	<svg class="scroll-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-		<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-	</svg>
+<div class="service-shell section-padding">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-xl-4 col-lg-5">
+                <div class="service-panel p-4 mb-4">
+                    <span class="subtitle__one">Explore Categories</span>
+                    <h4 class="mb-3">Jump to a service area</h4>
+                    <div class="service-nav">
+                        @foreach($serviceGroups as $key => $group)
+                            <a href="#service-{{ $key }}">{{ $group['title'] }}</a>
+                        @endforeach
+                    </div>
+                </div>
+
+                <div class="service-panel p-4">
+                    <span class="subtitle__one">Room Coverage</span>
+                    <h4 class="mb-3">Services connected to room types</h4>
+                    <p class="mb-0">Room-specific value now shows more clearly: meal plan, bedding, guest capacity, Wi-Fi, parking access, and stay style are surfaced alongside the service groups below.</p>
+                </div>
+            </div>
+
+            <div class="col-xl-8 col-lg-7">
+                @foreach($serviceGroups as $key => $group)
+                    <div class="service-panel p-4 p-lg-5 mb-4" id="service-{{ $key }}">
+                        <span class="subtitle__one">{{ $group['title'] }}</span>
+                        <h3 class="mb-3">{{ $group['intro'] }}</h3>
+                        <div class="row">
+                            @foreach($group['items'] as $item)
+                                <div class="col-md-4 mb-3">
+                                    <div class="service-panel p-3 h-100 shadow-none">
+                                        <h5 class="mb-2">{{ $item['name'] }}</h5>
+                                        <p class="mb-0">{{ $item['detail'] }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
+
+                <div class="service-panel p-4 p-lg-5">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <span class="subtitle__one">Featured Rooms</span>
+                            <h3 class="mb-0">Room content tied to services</h3>
+                        </div>
+                        <a href="{{ url('/roomlist') }}" class="simple-btn">See Full Room List</a>
+                    </div>
+                    <div class="row">
+                        @forelse($rooms as $room)
+                            <div class="col-md-6 mb-4">
+                                <div class="service-room-card service-panel h-100 overflow-hidden">
+                                    <img class="img__full" src="{{ asset('backend/images/product/' . $room->image) }}" alt="{{ $room->name }}">
+                                    <div class="p-4">
+                                        <h5><a href="{{ route('room.details', $room->id) }}">{{ $room->name }}</a></h5>
+                                        <p class="mb-3">{{ \Illuminate\Support\Str::limit($room->description, 110) }}</p>
+                                        <ul class="list-unstyled mb-0">
+                                            <li class="mb-2"><i class="fas fa-users mr-2"></i>{{ $room->max_persons ?? 2 }} Guests</li>
+                                            <li class="mb-2"><i class="fas fa-bed mr-2"></i>{{ $room->bed_type ?? 'Premium Bed' }}</li>
+                                            <li class="mb-2"><i class="fas fa-utensils mr-2"></i>{{ $room->meal_plan ?? 'Flexible Meals' }}</li>
+                                            <li><i class="fas fa-wifi mr-2"></i>{{ $room->is_wifi ? 'WiFi Included' : 'WiFi on request' }}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="col-12">
+                                <p class="mb-0 text-muted">Rooms will appear here once room records are available.</p>
+                            </div>
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="service-panel p-4 p-lg-5 mt-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <span class="subtitle__one">Operations Team</span>
+                    <h3 class="mb-0">People behind the guest experience</h3>
+                </div>
+            </div>
+            <div class="row">
+                {{-- Hardcoded Hotel Manager --}}
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="service-panel h-100 overflow-hidden">
+                        <img class="img__full" src="{{ asset('uploads/team/manager-ali.jpg') }}" alt="Hotel Manager" style="object-fit:cover;height:220px;width:100%;display:block;">
+                        <div class="p-3">
+                            <h6 class="mb-1">Hamza Fiaz</h6>
+                            <p class="mb-0 text-muted text-capitalize">manager</p>
+                        </div>
+                    </div>
+                </div>
+                @forelse($teams as $team)
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="service-panel h-100 overflow-hidden">
+                            <img class="img__full" src="{{ asset('uploads/team/'.$team->image) }}" alt="{{ $team->fullname }}" style="object-fit:cover;height:220px;width:100%;display:block;">
+                            <div class="p-3">
+                                <h6 class="mb-1">{{ $team->fullname }}</h6>
+                                <p class="mb-0 text-muted">{{ $team->designation }}</p>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <div class="col-12">
+                        <p class="mb-0 text-muted">Team profiles will appear here when they are added from the admin area.</p>
+                    </div>
+                @endforelse
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

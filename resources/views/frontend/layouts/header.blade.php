@@ -15,8 +15,20 @@
     <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/meanmenu.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/sass/style.css') }}">
-
+    <style>
+        .header__area-menubar-right-menu ul { flex-wrap: nowrap !important; white-space: nowrap; }
+        .header__area-menubar-right-menu ul li > a { padding-left: 9px !important; padding-right: 9px !important; font-size: 13px !important; letter-spacing: 0; }
+        @media (min-width: 992px) {
+            .header__area-menubar { flex-wrap: nowrap; }
+            .header__area-menubar-right { flex: 1; min-width: 0; }
+            .header__area-menubar-right-menu { width: 100%; }
+            .header__area-menubar-right-menu ul { display: flex !important; justify-content: flex-end; gap: 0; }
+            .header__area-menubar-right-box { flex-shrink: 0; }
+            .header__area-menubar-right-box-btn .theme-btn { padding: 10px 16px !important; font-size: 13px !important; }
+        }
+    </style>
 </head>
+
 <body>
 
     <div class="header__sticky">
@@ -25,36 +37,26 @@
                 <div class="header__area-menubar">
                     <div class="header__area-menubar-left">
                         <div class="header__area-menubar-left-logo">
-                            <a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo.png') }}" alt=""></a>
+                            <a href="{{ url('/') }}"><img src="{{ asset('assets/img/logo.png') }}" alt="Hostily"></a>
                             <div class="responsive-menu"></div>
                         </div>
                     </div>
                     <div class="header__area-menubar-right">
                         <div class="header__area-menubar-right-menu menu-responsive">
                             <ul id="mobilemenu">
-                                <li class="menu-item"><a href="{{ url('/') }}">Home</a>
-                                </li>
-                                <li class="menu-item-has-children"><a href="#">Pages</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{{ url('/about') }}">About us</a></li>
-                                        <li><a href="{{ url('/servicesteam') }}">Team</a></li>
-                                        <li><a href="{{ url('/servicesdetails') }}">Services Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-item-has-children"><a href="#">Room</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="{{ url('/roomlist') }}">Room List</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="{{ url('/blogdetails') }}">Blog</a>
-                                </li>
+                                <li><a href="{{ url('/') }}">Home</a></li>
+                                <li><a href="{{ url('/servicesdetails') }}">Services</a></li>
+                                <li><a href="{{ url('/roomlist') }}">Rooms</a></li>
+                                <li><a href="{{ route('blogs.index') }}">Blog</a></li>
+                                <li><a href="{{ url('/about') }}">About Us</a></li>
+                                <li><a href="{{ route('reviews.index') }}">Reviews</a></li>
                                 <li><a href="{{ url('/contact') }}">Contact</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="header__area-menubar-right-box">
                         <div class="header__area-menubar-right-box-btn">
-                            <a class="theme-btn" href="{{url('/book')}}">Book Now<i class="fal fa-long-arrow-right"></i></a>
+                            <a class="theme-btn" href="{{ url('/book') }}">Book Now<i class="fal fa-long-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

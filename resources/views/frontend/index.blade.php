@@ -7,7 +7,7 @@
 		<div class="row">
 			<div class="col-xl-12">
 				<div class="banner__area-title">
-					<h1>The Best Hotel<span>Deals in the World</span></h1>
+					<h1>Best Hotel with<span>Best Deals</span></h1>
 				</div>
 			</div>
 		</div>
@@ -180,37 +180,123 @@
 </div>
 <div class="services__area section-padding">
 	<div class="container">
+		<div class="row mb-50">
+			<div class="col-xl-7">
+				<div class="services__area-title">
+					<span class="subtitle__one">What We Offer</span>
+					<h2>Our Premium Hotel Services</h2>
+				</div>
+			</div>
+			<div class="col-xl-5 d-flex align-items-end justify-content-xl-end mt-3 mt-xl-0">
+				<a class="theme-btn" href="{{ url('/servicesteam') }}">All Services <i class="fal fa-long-arrow-right"></i></a>
+			</div>
+		</div>
 		<div class="row">
-			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 lg-mb-30">
+			{{-- 1. Housekeeping --}}
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-30">
 				<div class="services__area-item">
 					<div class="services__area-item-icon">
-						<img src="assets/img/icon/cleaning.png" alt="">
+						<img src="assets/img/icon/cleaning.png" alt="Housekeeping">
 					</div>
 					<div class="services__area-item-content">
-						<h5><a href="#">Room Cleaning</a></h5>
-						<p>Our housekeeping team ensures that every room is cleaned thoroughly and maintained to the highest standard for your comfort.</p>
+						<h5><a href="{{ url('/servicesteam') }}">Housekeeping</a></h5>
+						<p>Daily room cleaning, linen change, and turndown service ensuring a spotless, fresh environment throughout your stay.</p>
 					</div>
 				</div>
 			</div>
-			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 sm-mb-30">
+			{{-- 2. High-Speed Wi-Fi --}}
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-30">
 				<div class="services__area-item">
 					<div class="services__area-item-icon">
-						<img src="assets/img/icon/wifi.png" alt="">
+						<img src="assets/img/icon/wifi.png" alt="Wi-Fi">
 					</div>
 					<div class="services__area-item-content">
-						<h5><a href="#">Room Wifi</a></h5>
-						<p>Enjoy seamless high-speed internet connectivity in every room, perfect for both work and leisure.</p>
+						<h5><a href="{{ url('/servicesteam') }}">High-Speed Wi-Fi</a></h5>
+						<p>Blazing-fast complimentary Wi-Fi throughout every corner of the hotel — rooms, lobbies, restaurant, and pool areas.</p>
 					</div>
 				</div>
 			</div>
-			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+			{{-- 3. Airport Transfer --}}
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-30">
 				<div class="services__area-item">
 					<div class="services__area-item-icon">
-						<img src="assets/img/icon/location.png" alt="">
+						<img src="assets/img/icon/location.png" alt="Airport Transfer">
 					</div>
 					<div class="services__area-item-content">
-						<h5><a href="#">Pickup & Drop</a></h5>
-						<p>We offer convenient pickup and drop-off services to make your travel experience hassle-free.</p>
+						<h5><a href="{{ url('/servicesteam') }}">Airport Transfer</a></h5>
+						<p>Seamless pickup and drop-off between the airport and hotel in air-conditioned vehicles. Book in advance for a stress-free arrival.</p>
+					</div>
+				</div>
+			</div>
+			{{-- 4. 24-Hr Room Service --}}
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-30">
+				<div class="services__area-item">
+					<div class="services__area-item-icon">
+						<img src="assets/img/icon/breakfast.png" alt="Room Service">
+					</div>
+					<div class="services__area-item-content">
+						<h5><a href="{{ url('/servicesteam') }}">24-Hr Room Service</a></h5>
+						<p>Order from our full menu any time of day or night and have delicious meals delivered directly to your room.</p>
+					</div>
+				</div>
+			</div>
+			{{-- 5. Swimming Pool --}}
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-30">
+				<div class="services__area-item">
+					<div class="services__area-item-icon">
+						<img src="assets/img/icon/swimming-pool.png" alt="Swimming Pool">
+					</div>
+					<div class="services__area-item-content">
+						<h5><a href="{{ url('/servicesteam') }}">Swimming Pool</a></h5>
+						<p>Take a refreshing dip in our heated outdoor pool complete with lounge chairs, poolside service, and towel provisions.</p>
+					</div>
+				</div>
+			</div>
+			{{-- 6. Car Parking --}}
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-30">
+				<div class="services__area-item">
+					<div class="services__area-item-icon">
+						<img src="assets/img/icon/car-parking.png" alt="Car Parking">
+					</div>
+					<div class="services__area-item-content">
+						<h5><a href="{{ url('/servicesteam') }}">Secure Car Parking</a></h5>
+						<p>24-hour monitored on-site parking with optional valet service so you can arrive and leave with complete ease.</p>
+					</div>
+				</div>
+			</div>
+			{{-- 7. Spa & Wellness --}}
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-30">
+				<div class="services__area-item">
+					<div class="services__area-item-icon">
+						<img src="assets/img/icon/list-2.png" alt="Spa">
+					</div>
+					<div class="services__area-item-content">
+						<h5><a href="{{ url('/servicesteam') }}">Spa &amp; Wellness</a></h5>
+						<p>Indulge in relaxing massages, facials, and sauna sessions at our full-service spa for complete mind and body rejuvenation.</p>
+					</div>
+				</div>
+			</div>
+			{{-- 8. Fitness Center --}}
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-30">
+				<div class="services__area-item">
+					<div class="services__area-item-icon">
+						<img src="assets/img/icon/list-4.png" alt="Fitness">
+					</div>
+					<div class="services__area-item-content">
+						<h5><a href="{{ url('/servicesteam') }}">Fitness Center</a></h5>
+						<p>Stay active with our fully equipped gym featuring treadmills, free weights, and cardio machines open daily for all guests.</p>
+					</div>
+				</div>
+			</div>
+			{{-- 9. Concierge --}}
+			<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 mb-30">
+				<div class="services__area-item">
+					<div class="services__area-item-icon">
+						<img src="assets/img/icon/key.png" alt="Concierge">
+					</div>
+					<div class="services__area-item-content">
+						<h5><a href="{{ url('/servicesteam') }}">Concierge Service</a></h5>
+						<p>Our concierge team handles tour bookings, restaurant reservations, event tickets, and personalised local recommendations.</p>
 					</div>
 				</div>
 			</div>
@@ -231,8 +317,6 @@
 						<span class="subtitle__one">Our Food</span>
 						<h2>Restaurant Silo</h2>
 						<p>Our housekeeping team ensures that every room is cleaned thoroughly and maintained to the highest standard for your comfort.</p>
-						<a class="theme-border-btn" href="{{ url('/servicesdetails') }}">Read More<i
-								class="fal fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 			</div>
@@ -244,8 +328,6 @@
 						<span class="subtitle__one">Read Our Books</span>
 						<h2>The Library</h2>
 						<p>Relax with a wide selection of books and a serene atmosphere in our library, perfect for unwinding.</p>
-						<a class="theme-border-btn" href="{{ url('/service-details') }}">Read More<i
-								class="fal fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 			</div>
@@ -267,8 +349,6 @@
 						<span class="subtitle__one">Fitness Equipment</span>
 						<h2>Exercise equipment</h2>
 						<p>Stay active with our state-of-the-art fitness equipment, available to help you maintain your routine.</p>
-						<a class="theme-border-btn" href="{{ url('/servicesdetails') }}">Read More<i
-								class="fal fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 			</div>
@@ -280,8 +360,6 @@
 						<span class="subtitle__one">Experiences</span>
 						<h2>Swimming Pool</h2>
 						<p>Take a refreshing dip in our pool and enjoy a relaxing experience in a serene environment.</p>
-						<a class="theme-border-btn" href="{{ url('/servicesdetails') }}">Read More<i
-								class="fal fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 			</div>
@@ -294,85 +372,64 @@
 	</div>
 </div>
 
+<div class="services__area section-padding" style="background:#122238;">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-lg-7 text-white">
+				<span class="subtitle__one">AI Modules</span>
+				<h2 class="text-white">Smarter booking help, search, and guest insight</h2>
+				<p class="mb-0">Hostily now includes a smart chatbot, personalized room recommendations, natural language room search, and review sentiment analysis.</p>
+			</div>
+			<div class="col-lg-5 text-lg-end mt-4 mt-lg-0">
+				<a class="theme-btn" href="{{ route('ai.suggest.form') }}">Open AI Concierge<i class="fal fa-long-arrow-right"></i></a>
+				<a class="simple-btn text-white ml-3" href="{{ route('reviews.index') }}">See Review Insights</a>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class="blog__area section-padding">
 	<div class="container">
 		<div class="row mb-60">
-			<div class="col-xl-12">
+			<div class="col-xl-8">
 				<div class="blog__area-title">
 					<span class="subtitle__one">Our Blog</span>
-					<h2>Read Our Blog amd News</h2>
+					<h2>Fresh stories from the Hostily journal</h2>
 				</div>
+			</div>
+			<div class="col-xl-4 text-xl-end mt-3 mt-xl-0">
+				<a class="theme-btn" href="{{ route('blogs.index') }}">View All Blogs<i class="fal fa-long-arrow-right"></i></a>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xl-4 col-lg-6 xl-mb-30">
-				<div class="blog__area-item">
-					<div class="blog__area-item-image">
-						<a href="{{ url('/blogdetails') }}"><img src="assets/img/blog/blog-1.jpg" alt=""></a>
-					</div>
-					<div class="blog__area-item-content">
-						<div class="blog__area-item-content-box">
-							<div class="blog__area-item-content-box-date">
-								<h3>27</h3>
-								<span>July 2022</span>
-							</div>
-							<div class="blog__area-item-content-box-title">
-								<h5><a href="{{ url('/blogdetails') }}">The ultimate guide to finding the best hotels in
-										your area.</a></h5>
-							</div>
+			@forelse(($blogs ?? collect()) as $blog)
+				<div class="col-xl-4 col-lg-6 mb-30">
+					<div class="blog__area-item h-100">
+						<div class="blog__area-item-image">
+							<a href="{{ route('blogs.show', $blog->slug) }}"><img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}"></a>
 						</div>
-						<div class="blog__area-item-content-btn">
-							<a class="simple-btn-2" href="{{ url('/blogdetails') }}">Read More<i
-									class="fal fa-long-arrow-right"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-xl-4 col-lg-6 lg-mb-30">
-				<div class="blog__area-item blog__area-item-hover">
-					<div class="blog__area-item-image">
-						<a href="{{ url('/blogdetails') }}"><img src="assets/img/blog/blog-2.jpg" alt=""></a>
-					</div>
-					<div class="blog__area-item-content">
-						<div class="blog__area-item-content-box">
-							<div class="blog__area-item-content-box-date">
-								<h3>27</h3>
-								<span>July 2022</span>
+						<div class="blog__area-item-content">
+							<div class="blog__area-item-content-box">
+								<div class="blog__area-item-content-box-date">
+									<h3>{{ optional($blog->published_at)->format('d') ?? '01' }}</h3>
+									<span>{{ optional($blog->published_at)->format('M Y') ?? 'Hostily' }}</span>
+								</div>
+								<div class="blog__area-item-content-box-title">
+									<h5><a href="{{ route('blogs.show', $blog->slug) }}">{{ $blog->title }}</a></h5>
+									<p class="mt-10 mb-0">{{ $blog->excerpt }}</p>
+								</div>
 							</div>
-							<div class="blog__area-item-content-box-title">
-								<h5><a href="{{ url('/blogdetails') }}">Book a room Today most Affordable Rates.</a></h5>
+							<div class="blog__area-item-content-btn">
+								<a class="simple-btn-2" href="{{ route('blogs.show', $blog->slug) }}">Read More<i class="fal fa-long-arrow-right"></i></a>
 							</div>
-						</div>
-						<div class="blog__area-item-content-btn">
-							<a class="simple-btn-2" href="{{ url('/blogdetails') }}">Read More<i
-									class="fal fa-long-arrow-right"></i></a>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-xl-4 col-lg-6">
-				<div class="blog__area-item">
-					<div class="blog__area-item-image">
-						<a href="{{ url('/blogdetails') }}"><img src="assets/img/blog/blog-3.jpg" alt=""></a>
-					</div>
-					<div class="blog__area-item-content">
-						<div class="blog__area-item-content-box">
-							<div class="blog__area-item-content-box-date">
-								<h3>27</h3>
-								<span>July 2022</span>
-							</div>
-							<div class="blog__area-item-content-box-title">
-								<h5><a href="{{ url('/blogdetails') }}">Hotel Booking is the best choice for hotel
-										booking.</a></h5>
-							</div>
-						</div>
-						<div class="blog__area-item-content-btn">
-							<a class="simple-btn-2" href="{{ url('/blogdetails') }}">Read More<i
-									class="fal fa-long-arrow-right"></i></a>
-						</div>
-					</div>
+			@empty
+				<div class="col-12">
+					<p class="mb-0 text-muted">Blog posts will appear here once they are published.</p>
 				</div>
-			</div>
+			@endforelse
 		</div>
 	</div>
 </div>

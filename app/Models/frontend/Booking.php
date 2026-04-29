@@ -31,6 +31,11 @@ class Booking extends Model
         return $this->belongsTo(\App\Models\frontend\Room::class, 'room_id');
     }
 
+    public function review()
+    {
+        return $this->hasOne(\App\Models\backend\Reviews::class, 'booking_id');
+    }
+
     public function user()
     {
         return $this->belongsTo(\App\Models\User::class, 'user_id');

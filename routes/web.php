@@ -3,7 +3,6 @@
 // //frontend
 use App\Http\Controllers\frontend\IndexController;
 use App\Http\Controllers\frontend\AboutController;
-use App\Http\Controllers\frontend\blogdetailscontroller;
 use App\Http\Controllers\frontend\contactcontroller;
 use App\Http\Controllers\frontend\maincontroller;
 use App\Http\Controllers\frontend\roomlistcontroller;
@@ -12,8 +11,10 @@ use App\Http\Controllers\frontend\servicesdetailscontroller;
 use App\Http\Controllers\frontend\servicesteamcontroller;
 use App\Http\Controllers\frontend\RoomController;
 use App\Http\Controllers\frontend\BookingController;
+use App\Http\Controllers\frontend\BlogController;
 use App\Http\Controllers\frontend\ChatbotController;
 use App\Http\Controllers\frontend\AiSuggestionController;
+use App\Http\Controllers\frontend\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 //Backend controller
@@ -24,7 +25,7 @@ use App\Http\Controllers\backend\TeamMemberController;
 use App\Http\Controllers\backend\AdminFaqsController;
 use App\Http\Controllers\backend\AdminReviewController;
 use App\Http\Controllers\backend\AdminShopController;
-use App\Http\Controllers\backend\AdminProductController;
+use App\Http\Controllers\backend\AdminBookingController;
 use App\Http\Controllers\backend\AdminroomsController;
 use App\Http\Controllers\backend\AdminCartController;
 use App\Http\Controllers\backend\Fitemcontroller;
@@ -34,14 +35,19 @@ use App\Http\Controllers\backend\Fitemcontroller;
 Route::get('/', [IndexController::class, 'index']);
 Route::get('/about', [AboutController::class, 'index']);
 Route::get('/roomdetails/{id}', [RoomController::class, 'show'])->name('room.details');
-Route::get('/blogdetails', [blogdetailscontroller::class, 'index']);
+Route::get('/blogs', [BlogController::class, 'index'])->name('blogs.index');
+Route::get('/blogs/{slug}', [BlogController::class, 'show'])->name('blogs.show');
+Route::get('/blogdetails', [BlogController::class, 'index']);
+Route::get('/blogdetails/{slug}', [BlogController::class, 'show']);
 Route::get('/main', [maincontroller::class, 'index']);
 Route::get('/roomlist', [roomlistcontroller::class, 'index']);
 Route::get('/pricing', [pricingcontroller::class, 'index']);
 Route::get('/servicesdetails', [servicesdetailscontroller::class, 'index']);
 Route::get('/servicesteam', [servicesteamcontroller::class, 'index']);
 Route::get('/contact', [contactcontroller::class, 'index']);
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
+Route::get('/reviews', [ReviewController::class, 'index'])->name('reviews.index');
+Route::post('/reviews', [ReviewController::class, 'store'])->name('reviews.store');
+Route::post('/contact', [contactcontroller::class, 'store'])->name('contact.store');
 // Booking page (global + room specific)
 Route::get('/book', [BookingController::class, 'index'])->name('booking.index');
 Route::get('/book/{id}', [BookingController::class, 'index'])->name('book.room');
@@ -93,7 +99,7 @@ Route::get('/admin/team-add', [TeamMemberController::class, 'create']);
 Route::post('/admin/team-add', [TeamMemberController::class, 'store']);
 Route::get('/admin/team-delete/{id}', [TeamMemberController::class, 'destroy']);
 // Frontend
-Route::get('/team', [servicesteamcontroller::class, 'frontend']);
+Route::get('/team', [servicesteamcontroller::class, 'index']);
 
 // Reviews Management
 Route::get('/admin/reviews', [AdminReviewController::class, 'index'])->name('review.show');
@@ -101,6 +107,7 @@ Route::get('/admin/review-add', [AdminReviewController::class, 'addReview'])->na
 Route::post('/admin/review-add', [AdminReviewController::class, 'submitReviewRecord']);
 Route::get('/admin/review-edit/{id}', [AdminReviewController::class, 'editReview'])->name('review.edit');
 Route::put('/admin/review-edit/{id}', [AdminReviewController::class, 'updateReview'])->name('review.update');
+Route::patch('/admin/review-approve/{id}', [AdminReviewController::class, 'approveReview'])->name('review.approve');
 Route::delete('/admin/review-delete/{id}', [AdminReviewController::class, 'deleteReview'])->name('review.delete');
 
 // FAQs Management
@@ -119,13 +126,9 @@ Route::get('/admin/shop-edit/{id}', [AdminShopController::class, 'editShop'])->n
 Route::put('/admin/shop-edit/{id}', [AdminShopController::class, 'updateShop'])->name('shop.update');
 Route::delete('/admin/shop-delete/{id}', [AdminShopController::class, 'deleteShop'])->name('shop.delete');
 
-// Products Management
-Route::get('/admin/homeproducts', [AdminProductController::class, 'index'])->name('product.show');
-Route::get('/admin/product-add', [AdminProductController::class, 'addProduct'])->name('product.add');
-Route::post('/admin/product-add', [AdminProductController::class, 'submitProductRecord']);
-Route::get('/admin/product-edit/{id}', [AdminProductController::class, 'editProduct'])->name('product.edit');
-Route::put('/admin/product-edit/{id}', [AdminProductController::class, 'updateProduct'])->name('product.update');
-Route::delete('/admin/product-delete/{id}', [AdminProductController::class, 'deleteProduct'])->name('product.delete');
+// Bookings Management
+Route::get('/admin/bookings', [AdminBookingController::class, 'index'])->name('booking.show');
+Route::redirect('/admin/homeproducts', '/admin/bookings');
 
 // Room Management
 Route::get('/admin/room', [AdminroomsController::class, 'index'])->name('room.show');
@@ -166,4 +169,3 @@ Route::get('admin/logout', function(){
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-

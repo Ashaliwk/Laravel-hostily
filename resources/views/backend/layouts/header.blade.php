@@ -90,7 +90,7 @@
                     </div>
                 </div>
             </li>
-            <li class="nav-item {{ Request::is('admin/homeproducts', 'admin/product-add') ? 'active':''}}">
+            <li class="nav-item {{ Request::is('admin/bookings', 'admin/homeproducts') ? 'active':''}}">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts"
                     aria-expanded="true" aria-controls="collapseProducts">
                     <i class="fas fa-fw fa-comments"></i>
@@ -98,7 +98,7 @@
                 </a>
                 <div id="collapseProducts" class="collapse" aria-labelledby="homeproducts" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{url('/admin/homeproducts')}}">All Bookings</a>
+                        <a class="collapse-item" href="{{url('/admin/bookings')}}">All Bookings</a>
                     </div>
                 </div>
             </li>

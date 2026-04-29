@@ -12,7 +12,9 @@ class AdminReviewController extends Controller
     {
         if($request->session()->exists('email')){
 
-            return view('backend.review', ['reviews'=>Reviews::get()]);
+            return view('backend.review', [
+                'reviews' => Reviews::with(['room', 'booking'])->latest()->get(),
+            ]);
         } else{
             return view('backend.login');
         }
@@ -88,5 +90,14 @@ class AdminReviewController extends Controller
         $reviews = Reviews::where('id', $id)->first();
         $reviews->delete();
         return back()->withSuccess('Review Item Record Deleted Successfully');
+    }
+
+    public function approveReview($id)
+    {
+        $review = Reviews::where('id', $id)->firstOrFail();
+        $review->status = $review->status == 1 ? 0 : 1;
+        $review->save();
+
+        return back()->withSuccess($review->status == 1 ? 'Review published successfully.' : 'Review hidden successfully.');
     }
 }
