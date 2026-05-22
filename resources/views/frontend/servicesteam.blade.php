@@ -65,14 +65,27 @@
         </div>
 
         <div class="row">
-            {{-- Hardcoded Hotel Manager --}}
-            <div class="col-xl-4 col-lg-4 col-md-6 mb-4">
-                <div class="team-panel overflow-hidden h-100">
-                    <img class="img__full" src="{{ asset('uploads/team/manager-ali.jpg') }}" alt="Hotel Manager" style="object-fit:cover;height:300px;width:100%;display:block;">
-                    <div class="p-4">
-                        <h5 class="mb-1">Hamza Fiaz</h5>
-                        <p class="text-muted mb-3 text-capitalize">manager</p>
-                        <p class="mb-3">Leads all hotel operations with a passion for exceptional guest experiences and seamless day-to-day management.</p>
+            @forelse($teams as $team)
+            <div class="col-xl-4 col-lg-4 col-md-6 mb-30">
+                <div class="services__team-item">
+                    <div class="services__team-item-image">
+                        <img src="{{ asset('uploads/team/'.$team->image) }}" alt="">
+                        <div class="services__team-item-image-content">
+                            <h4>{{ $team->fullname }}</h4>
+                            <span>{{ $team->designation }}</span>
+
+                            <div class="services__team-item-image-content-social">
+                                <ul>
+                                    @if($team->intro)
+                                    <li>
+                                        <a href="{{ $team->intro }}" target="_blank">
+                                            <p>{{ $team->intro }}</p>
+                                        </a>
+                                    </li>
+                                    @endif
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
