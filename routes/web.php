@@ -28,7 +28,6 @@ use App\Http\Controllers\backend\AdminShopController;
 use App\Http\Controllers\backend\AdminBookingController;
 use App\Http\Controllers\backend\AdminroomsController;
 use App\Http\Controllers\backend\AdminCartController;
-use App\Http\Controllers\backend\Fitemcontroller;
 
 #Frontend
 

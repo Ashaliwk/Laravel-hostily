@@ -115,20 +115,6 @@
                     </div>
                 </div>
             </li>
-
-            <li class="nav-item {{ Request::is('admin/fitem', 'admin/fitem-add') ? 'active':''}}">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFoodItems"
-                    aria-expanded="true" aria-controls="collapseFoodItems">
-                    <i class="fas fa-fw fa-comments"></i>
-                    <span>Food Items</span>
-                </a>
-                <div id="collapseFoodItems" class="collapse" aria-labelledby="fooditems" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{url('/admin/fitem-add')}}">Add Food Products</a>
-                        <a class="collapse-item" href="{{url('/admin/fitem')}}">Food item products</a>
-                    </div>
-                </div>
-            </li>
             </li>
             <hr class="sidebar-divider d-none d-md-block">
             <li class="nav-item">

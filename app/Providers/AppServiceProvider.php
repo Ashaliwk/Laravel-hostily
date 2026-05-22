@@ -20,13 +20,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer('*', function ($view) {
-            $latestItem = FoodItem::latest()->first();
-            $img = null;
-            if ($latestItem && $latestItem->images) {
-                $images = json_decode($latestItem->images);
-                $img = $images[0] ?? null;
-            }
-            $view->with('img', $img);
         });
     }
 }
