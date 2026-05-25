@@ -169,15 +169,6 @@
             </div>
             <div class="row">
                 {{-- Hardcoded Hotel Manager --}}
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="service-panel h-100 overflow-hidden">
-                        <img class="img__full" src="{{ asset('uploads/team/manager-ali.jpg') }}" alt="Hotel Manager" style="object-fit:cover;height:220px;width:100%;display:block;">
-                        <div class="p-3">
-                            <h6 class="mb-1">Hamza Fiaz</h6>
-                            <p class="mb-0 text-muted text-capitalize">manager</p>
-                        </div>
-                    </div>
-                </div>
                 @forelse($teams as $team)
                     <div class="col-xl-3 col-md-6 mb-4">
                         <div class="service-panel h-100 overflow-hidden">

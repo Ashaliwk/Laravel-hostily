@@ -20,13 +20,7 @@
     <div id="wrapper">
         <ul class="navbar-nav bg-dark sidebar sidebar-dark accordion" id="accordionSidebar">
             <br>
-            <a class="fd">
-                <div class="justify-content-center text-align-center">
-                    @if($img)
-                    <img src="{{ asset('uploads/fitems/' . $img) }}" width="100%">
-                    @endif
-                </div>
-            </a>
+            <br><br>
             <br>
             <hr class="sidebar-divider my-0">
             <li class="nav-item  {{ Request::is('admin') ? 'active':''}}">

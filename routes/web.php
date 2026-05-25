@@ -137,15 +137,6 @@ Route::get('/admin/room-edit/{id}', [AdminroomsController::class, 'editroom'])->
 Route::put('/admin/room-edit/{id}', [AdminroomsController::class, 'updateroom'])->name('room.update');
 Route::delete('/admin/room-delete/{id}', [AdminroomsController::class, 'deleteroom'])->name('room.delete');
 
-//Fitem Managemet
-
-Route::get('/admin/fitem', [Fitemcontroller::class, 'index'])->name('fitem.show');
-Route::get('/admin/fitem-add', [Fitemcontroller::class, 'create'])->name('fitem.add');
-Route::post('/admin/fitem-add', [Fitemcontroller::class, 'store'])->name('fitem.store');
-Route::get('/admin/fitem-edit/{id}', [Fitemcontroller::class, 'edit'])->name('fitem.edit');
-Route::put('/admin/fitem-update/{id}', [Fitemcontroller::class, 'update'])->name('fitem.update');
-Route::delete('/admin/fitem-delete/{id}', [Fitemcontroller::class, 'destroy'])->name('fitem.delete');
-
 // Project Management
 
 Route::get('/admin/projects', [AdminProjectsController::class, 'index'])->name('project.add');

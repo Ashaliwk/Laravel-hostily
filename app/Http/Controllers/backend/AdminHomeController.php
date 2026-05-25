@@ -10,7 +10,6 @@ use App\Models\backend\rooms;
 use App\Models\backend\Team;
 use App\Models\backend\Shops;
 use App\Models\backend\Reviews;
-use App\Models\backend\FoodItem;
 
 class AdminHomeController extends Controller
 {
@@ -25,7 +24,6 @@ class AdminHomeController extends Controller
             $TotalReviews      = Reviews::count();        // table: reviews
             $TotalShopProduct  = Shops::count();          // table: shops
             $Totalrooms     = rooms::count();        // table: rooms
-            $foodItems         = FoodItem::count();       // table: foodItems (fixed via model)
 
             return view('backend.index', compact(
                 'Name',
@@ -34,8 +32,7 @@ class AdminHomeController extends Controller
                 'TotalFAQs',
                 'TotalReviews',
                 'TotalShopProduct',
-                'Totalrooms',
-                'foodItems'
+                'Totalrooms'
             ));
         } else {
             return view('backend.login');
