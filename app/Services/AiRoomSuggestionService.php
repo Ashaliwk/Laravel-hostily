@@ -7,20 +7,13 @@ use Illuminate\Support\Arr;
 
 class AiRoomSuggestionService
 {
-    /**
-     * Filter rooms strictly under the given budget and matching all other preferences.
-     * Budget is treated as EXCLUSIVE upper limit: price < budget.
-     */
     public function suggestRooms(array $data)
     {
         $query = Room::query()->where('room_status', 'available');
-
-        // Budget: enforce a hard maximum so rooms above the budget never appear.
         if (!empty($data['budget'])) {
             $query->where('price', '<=', (float) $data['budget']);
         }
 
-        // Number of guests: room must accommodate at least this many
         if (!empty($data['persons'])) {
             $query->where('max_persons', '>=', (int) $data['persons']);
         }
@@ -29,7 +22,6 @@ class AiRoomSuggestionService
             $query->whereRaw('LOWER(room_type) = ?', [strtolower((string) $data['room_type'])]);
         }
 
-        // AC preference
         if (!empty($data['ac_type']) && $data['ac_type'] !== 'any') {
             $query->where('ac_type', $data['ac_type']);
         }
