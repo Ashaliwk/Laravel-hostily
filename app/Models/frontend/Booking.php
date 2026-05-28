@@ -18,7 +18,9 @@ class Booking extends Model
         'check_out',
         'guests',
         'total_price',
-        'status'
+        'status',
+        'verification_code',
+        'is_verified'
     ];
 
     protected $casts = [

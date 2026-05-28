@@ -53,6 +53,13 @@
                                         @else
                                             <span class="badge badge-warning p-2 text-uppercase">{{ $booking->status }}</span>
                                         @endif
+                                        <div class="mt-1">
+                                            @if($booking->is_verified)
+                                                <span class="badge badge-light border text-success" style="font-size: 11px;"><i class="fas fa-check-circle"></i> Email Verified</span>
+                                            @else
+                                                <span class="badge badge-light border text-danger" style="font-size: 11px;"><i class="fas fa-times-circle"></i> Unverified</span>
+                                            @endif
+                                        </div>
                                     </td>
                                     <td>
                                         @if($booking->review)

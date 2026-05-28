@@ -8,6 +8,9 @@ use App\Models\frontend\Booking;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\BookingVerificationMail;
+use App\Mail\BookingConfirmedMail;
 
 class BookingController extends Controller
 {
@@ -58,26 +61,93 @@ class BookingController extends Controller
 
         $total = $nights * $room->price;
 
+        $verificationCode = (string) mt_rand(100000, 999999);
+
         $booking = Booking::create([
-            'room_id'     => $room->id,
-            'guest_name'  => $request->guest_name,
-            'guest_email' => $request->guest_email,
-            'guest_phone' => $request->guest_phone,
-            'check_in'    => $request->check_in,
-            'check_out'   => $request->check_out,
-            'guests'      => $room->max_persons ?? 1,
-            'total_price' => $total,
-            'status'      => 'pending',
+            'room_id'           => $room->id,
+            'guest_name'        => $request->guest_name,
+            'guest_email'       => $request->guest_email,
+            'guest_phone'       => $request->guest_phone,
+            'check_in'          => $request->check_in,
+            'check_out'         => $request->check_out,
+            'guests'            => $room->max_persons ?? 1,
+            'total_price'       => $total,
+            'status'            => 'pending',
+            'verification_code' => $verificationCode,
+            'is_verified'       => false,
         ]);
 
         Session::put('hotel_ai_history.last_booked_room_type', $room->room_type);
         Session::put('hotel_ai_history.last_booked_room_id', $room->id);
+        Session::put('pending_booking_id', $booking->id);
+
+        // Send verification email
+        try {
+            Mail::to($booking->guest_email)->send(new BookingVerificationMail($booking));
+        } catch (\Exception $e) {
+            // Log or ignore for local simulation
+        }
 
         return redirect()
-            ->route('booking.success')
-            ->with('success', 'Room booked successfully! We have sent a confirmation to your email.')
-            ->with('booking_reference', $booking->id)
-            ->with('booking_email', $booking->guest_email);
+            ->route('booking.verify')
+            ->with('success', 'Room booked! We have sent a 6-digit verification code to your email.');
+    }
+
+    /**
+     * Show booking verification page
+     */
+    public function showVerifyForm()
+    {
+        $bookingId = Session::get('pending_booking_id');
+
+        if (!$bookingId) {
+            return redirect()->route('booking.index')->with('error', 'No pending booking found.');
+        }
+
+        $booking = Booking::findOrFail($bookingId);
+
+        return view('frontend.booking_verify', compact('booking'));
+    }
+
+    /**
+     * Verify email code
+     */
+    public function verifyCode(Request $request)
+    {
+        $request->validate([
+            'verification_code' => 'required|string|size:6',
+        ]);
+
+        $bookingId = Session::get('pending_booking_id');
+
+        if (!$bookingId) {
+            return redirect()->route('booking.index')->with('error', 'No pending booking found.');
+        }
+
+        $booking = Booking::findOrFail($bookingId);
+
+        if ($request->verification_code === $booking->verification_code) {
+            $booking->is_verified = true;
+            $booking->status = 'confirmed';
+            $booking->save();
+
+            // Send Booking Confirmed email
+            try {
+                Mail::to($booking->guest_email)->send(new BookingConfirmedMail($booking));
+            } catch (\Exception $e) {
+                // Log or ignore
+            }
+
+            Session::forget('pending_booking_id');
+
+            return redirect()
+                ->route('booking.success')
+                ->with('success', 'Email verified and booking confirmed successfully! A confirmation email has been sent.')
+                ->with('booking_reference', $booking->id)
+                ->with('booking_email', $booking->guest_email);
+        }
+
+        return back()->with('error', 'Invalid verification code. Please check your email and try again.');
     }
 
     /**

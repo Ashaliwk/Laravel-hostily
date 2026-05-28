@@ -51,6 +51,8 @@ Route::post('/contact', [contactcontroller::class, 'store'])->name('contact.stor
 Route::get('/book', [BookingController::class, 'index'])->name('booking.index');
 Route::get('/book/{id}', [BookingController::class, 'index'])->name('book.room');
 Route::post('/book-room', [BookingController::class, 'store'])->name('book.room');
+Route::get('/booking/verify', [BookingController::class, 'showVerifyForm'])->name('booking.verify');
+Route::post('/booking/verify', [BookingController::class, 'verifyCode'])->name('booking.verify.submit');
 Route::get('/booking-success', [BookingController::class, 'success'])->name('booking.success');
 Route::get('/search-rooms', [RoomController::class, 'search'])->name('search.rooms');
 
