@@ -45,6 +45,7 @@
                     </div>
                     @endif
 
+
                     <form action="{{ route('booking.verify.submit') }}" method="POST" id="verify-form">
                         @csrf
                         <div class="mb-4 text-center">
@@ -110,7 +111,6 @@
         const inputs = document.querySelectorAll(".code-box-input");
         const hiddenInput = document.getElementById("verification_code");
         const form = document.getElementById("verify-form");
-
         // Focus the first input box initially
         if (inputs.length > 0) {
             inputs[0].focus();

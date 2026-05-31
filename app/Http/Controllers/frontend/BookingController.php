@@ -85,7 +85,11 @@ class BookingController extends Controller
         try {
             Mail::to($booking->guest_email)->send(new BookingVerificationMail($booking));
         } catch (\Exception $e) {
-            // Log or ignore for local simulation
+            \Illuminate\Support\Facades\Log::error("Failed to send booking verification email: " . $e->getMessage(), [
+                'exception' => $e,
+                'booking_id' => $booking->id,
+                'email' => $booking->guest_email
+            ]);
         }
 
         return redirect()
@@ -135,7 +139,11 @@ class BookingController extends Controller
             try {
                 Mail::to($booking->guest_email)->send(new BookingConfirmedMail($booking));
             } catch (\Exception $e) {
-                // Log or ignore
+                \Illuminate\Support\Facades\Log::error("Failed to send booking confirmation email: " . $e->getMessage(), [
+                    'exception' => $e,
+                    'booking_id' => $booking->id,
+                    'email' => $booking->guest_email
+                ]);
             }
 
             Session::forget('pending_booking_id');
